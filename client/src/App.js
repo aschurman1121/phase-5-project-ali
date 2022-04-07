@@ -1,25 +1,33 @@
-import logo from './logo.svg';
+import React, { useState, useEffect} from 'react';
 import './App.css';
+import Login from './Login';
+
+
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const [neighbor, setNeighbor] = useState(null)
+
+useEffect(() => {
+  fetch('/me').then((resp) => {
+    if (resp.ok) {
+      resp.json().then((neighbor)=> setNeighbor(neighbor));
+    }
+  })
+}, []);
+
+if (neighbor) {
+  return <h2> hello {neighbor.name}!</h2>;
+} else{
+  return <Login onLogin={setNeighbor} />
+}
+
+  // return (
+  //  <div>
+  //    <Login />
+  //  </div>
+  // );
 }
 
 export default App;
