@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import NavBar from './NavBar';
+import SignUp from './SignUp';
 
 
 function Login({ onLogin }) {
@@ -29,8 +30,9 @@ function Login({ onLogin }) {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}/>
         <button type="submit">Login</button>
+    
         </form>
-
+      <SignUp />
 
     </div>
 

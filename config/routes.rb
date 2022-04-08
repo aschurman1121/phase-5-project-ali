@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   
-  resources :neighbors
+  resources :neighbors, only: [:create, ]
   resources :events
   resources :communities
 
-
+  post '/signup', to: "neighbor#create"
   post '/login', to: "sessions#create"
+  post '/login', to: "sessions#login"
+  get '/authorized_neighbor', to: "neighbor#show"
   get '/me', to: 'neighbors#show'
   delete '/logout', to: "sessions#destroy"
   
