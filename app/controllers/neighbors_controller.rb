@@ -2,7 +2,7 @@ class NeighborsController < ApplicationController
 
 def create
     neighbor = Neighbor.create!(neighbor_params)
-    byebug
+    # byebug
     if user.valid?
         render json: user, status: :created
     else

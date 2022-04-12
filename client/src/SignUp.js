@@ -1,4 +1,12 @@
-import React, { useState} from 'react'
+import React, { useState } from 'react';
+// import { Form } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/esm/Container';
+import NavBar from './NavBar';
+
+
 
 function SignUp({ onLogin }) {
     const [neighbor, setNeighbor] = useState("")
@@ -21,29 +29,56 @@ function SignUp({ onLogin }) {
     }
 
   return (
-    <div>SignUp
-        <form onSubmit={handleSignUpSubmit}>
-            <label htmlFor='neighbor'>Neighbor Name:</label>
-            <input 
+    <>
+    <div>
+    <NavBar />
+    </div> 
+
+    <div className="user_start">
+    <Container> 
+    <div className="title_block">
+        Community Corner
+      </div>
+      <div className='login_sign_up'>
+    <h2>SignUp</h2>
+                <Form onSubmit={handleSignUpSubmit}>
+             <Form.Group>
+            <Form.Label>Neighbor Name:</Form.Label>
+            <Form.Control 
                 type="text" 
                 id="username" 
                 value={password} 
                 onChange={(e) => setPassword(e.target.value)}/>
-            <label htmlFor='password_confirmation'> confirm password: </label>
-            <input
+                   </Form.Group>
+            <Form.Label> Password: </Form.Label>
+            <Form.Group>
+            <Form.Control 
                 type="password"
                 id="password_confirmation"
                 value={passwordConfirmation}
                 onChange={(e) => setPasswordConfirmation(e.target.value)}/>
-            <label htmlFor='age'> age: </label>
-            <input
+            </Form.Group>
+            <Form.Group>
+            <Form.Label> Age: </Form.Label>
+            <Form.Control
                 type="age"
+            
                 />
-            <label> Community: </label> 
-        <button type="submit">Submit</button>
-        </form>
+            <Form.Label> Community: </Form.Label> 
+            <Form.Control
+                type="text"
+                placeholder='this will be a drop down selection'
+            ></Form.Control>
+            </Form.Group>
+           
+        <Button type="submit">Submit</Button>
+     
+        </Form>
+        </div>
+        </Container>
 
     </div>
+    </>
   )
 }
 

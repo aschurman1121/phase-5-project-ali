@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from 'react-bootstrap/Button'
 
 function NavBar({ onLogout }) {
     
@@ -13,9 +14,11 @@ function NavBar({ onLogout }) {
 
 
   return (
+    <div className="header">
     <header>
-        <button onClick={handleLogout}>logout</button>
+        <Button onClick={handleLogout}>logout</Button>
     </header>
+    </div>
   )
 }
 

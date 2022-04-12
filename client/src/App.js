@@ -1,7 +1,13 @@
 import React, { useState, useEffect} from 'react';
 import './App.css';
 import Login from './Login';
+import NavBar from './NavBar';
 
+import { Route, BrowserRouter, Routes } from "react-router-dom";
+import SignUp from './SignUp';
+import Homepage from './Homepage';
+import CreateEvent from './CreateEvent';
+import EventPage from './EventPage';
 
 
 
@@ -17,17 +23,32 @@ useEffect(() => {
   })
 }, []);
 
-if (neighbor) {
-  return <h2> hello {neighbor.name}!</h2>;
-} else{
-  return <Login onLogin={setNeighbor} />
-}
+// if (neighbor) {
+//   return <h2> hello {neighbor.name}!</h2>;
+// } else{
+//   return <Login onLogin={setNeighbor} />
+// }
+// 
 
-  // return (
-  //  <div>
-  //    <Login />
-  //  </div>
-  // );
-}
-
+  return (
+   <div>
+     
+     {/* {neighbor ? <Login/> : <SignUp/>} */}
+       <Routes>
+         
+        <Route path='/login' element={<Login />} >
+        </Route>
+        <Route path='/newEventForm' element={<CreateEvent />}>
+        </Route>
+        <Route path='/:id/edit' element={<EventPage />}>
+        </Route>
+        <Route path='/signup' element={<SignUp />} >
+        </Route>
+        <Route exact path='/' element={<Homepage />} >
+        </Route>
+        </Routes>
+ 
+   </div>
+  );
+  };
 export default App;
