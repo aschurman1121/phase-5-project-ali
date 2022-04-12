@@ -7,20 +7,32 @@ function CreateEvent() {
 
        //this page is on the /newEventForm
 
+       // const newEventObj = {
+       // 'event title',
+       // 'date',
+       // 'purpose',
+       // 'supplies',
+       // 'location',
+       // ''
+       // }
+
     const [newEvent, setNewEvent] = useState("")
 
     function handleEventSubmit(e){
         e.preventDefault();
-        fetch('/event/newEventForm', {
+        fetch('/newEventForm', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({newEvent})
         })
-        .then(r => r.json())
-        .then(data => console.log(data))
+        .then(r => r.json()) 
+        .then(data => setNewEvent(data))
     }
+
+
+
     // function handleEventSubmit(e) {
     //     setNewEvent(e.target.value)
     //     console.log(newEvent)

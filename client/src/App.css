@@ -3,6 +3,11 @@
   background: rgba(177, 133, 219, 0.74);
   position: relative;
 }
+
+.link{
+  color: white;
+  /* text-decoration: none; */
+}
 .user_start{
   position: relative;
   width: 1512px;
@@ -52,7 +57,12 @@ width: 790px;
 height: 840px;
 left: 49px;
 top: 93px;
-border-style: solid;
+/* border-style: solid; */
+
+background: #F8FFE5;
+order: 5;
+/* display: flex; */
+
 
 
 }
@@ -60,4 +70,15 @@ border-style: solid;
 .home {
   background: rgba(177, 133, 219, 0.74);
   ;
+}
+.event_card {
+  position: relative;
+  width: 747px;
+  height: 187px;
+  left: 66px;
+  top: 204px;
+  margin: 25px 50px 75px 100px;
+  
+  background: rgba(177, 133, 219, 0.4);
+  flex-direction: columm;
 }

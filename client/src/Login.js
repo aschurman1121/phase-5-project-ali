@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import NavBar from './NavBar';
+import { Link } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form'
@@ -53,7 +54,9 @@ function Login({ onLogin }) {
         </Form.Group>
         <Button type="submit">Login</Button>
         </Form>
+        <Link to='/signup'>
         Not a member? Sign up here!
+        </Link>
             </div>
 
     </Container>
