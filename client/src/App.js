@@ -23,12 +23,15 @@ useEffect(() => {
   })
 }, []);
 
-// if (neighbor) {
-//   return <h2> hello {neighbor.name}!</h2>;
-// } else{
-//   return <Login onLogin={setNeighbor} />
-// }
-// 
+if (neighbor) {
+  return <h2> hello {neighbor.name}!</h2>;
+} else{
+  return <Login onLogin={setNeighbor} />
+}
+//can I move this Auth to be an if statement then return?
+//if (neighbor) { return (JSX)}
+// Do I want to set up validations for a false click of login?
+
 
   return (
    <div>
