@@ -8,11 +8,11 @@ import NavBar from './NavBar';
 
 
 
-function SignUp({ onLogin }) {
+function SignUp({ onLogin, username, password, setUsername, setPassword }) {
 
     // add username to sign up
-    const [neighbor, setNeighbor] = useState("")//this is the one to change?
-    const [password, setPassword] = useState("")
+    // const [neighbor, setNeighbor] = useState("")//this is the one to change?
+    // const [password, setPassword] = useState("")
     const [passwordConfirmation, setPasswordConfirmation] = useState("")
 
     function handleSignUpSubmit(e) {
@@ -23,7 +23,7 @@ function SignUp({ onLogin }) {
                 "Content-Type":"application/json",
             },
         body: JSON.stringify({
-            neighbor, password
+            username, password
         }),
         // body: JSON.stringify({
         //     neighbor, password, password_confirmation: passwordConfirmation
@@ -52,18 +52,17 @@ function SignUp({ onLogin }) {
             <Form.Control 
                 type="text" 
                 id="username" 
-                // value={username} 
-                value={neighbor} 
-                onChange={(e) => setPassword(e.target.value)}/>
+                value={username} 
+                // value={neighbor} 
+                onChange={(e) => setUsername(e.target.value)}/>
                    </Form.Group>
             <Form.Label> Password: </Form.Label>
             <Form.Group>
             <Form.Control 
                 type="password"
                 id="password_confirmation"
-                // value={passwordConfirmation}
                 value={password}
-                onChange={(e) => setPasswordConfirmation(e.target.value)}/>
+                onChange={(e) => setPassword(e.target.value)}/>
             </Form.Group>
             <Form.Group>
             <Form.Label> Age: </Form.Label>

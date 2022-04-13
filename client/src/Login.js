@@ -8,10 +8,10 @@ import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 
 
-function Login({ onLogin }) {
+function Login({ onLogin, username, password, setUsername, setPassword }) {
 
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  // const [username, setUsername] = useState("");
+  // const [password, setPassword] = useState("");
 
 
     function handleLoginSubmit (e){
