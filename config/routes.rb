@@ -6,8 +6,9 @@ Rails.application.routes.draw do
 
   post '/signup', to: "neighbors#create"
   post '/events/create', to: "events#create"
-  patch 'events/:id/edit', to: "events#edit"
+  patch '/events/:id/edit', to: "events#edit"
   post '/login', to: "sessions#create"
+  # delete '/logout', to: "sessions#destroy"
   
   get '/authorized_neighbor', to: "neighbor#show"
   get '/me', to: 'neighbors#show'

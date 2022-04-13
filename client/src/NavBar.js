@@ -1,5 +1,7 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button'
+import { Link } from "react-router-dom";
+
 
 function NavBar({ onLogout }) {
     
@@ -7,6 +9,11 @@ function NavBar({ onLogout }) {
         fetch('/logout', {
             method: 'DELETE',
         }).then(()=> onLogout);
+            // move state from app.js to use these
+        // }).then(()=> {
+        //   setIsAuthenticated(false)
+        //   setNeighbor(null)
+        // });
         // console.log('clicked')
     }
 
@@ -16,7 +23,9 @@ function NavBar({ onLogout }) {
   return (
     <div className="header">
     <header>
+      <Link to='/logout'>
         <Button onClick={handleLogout}>logout</Button>
+        </Link>
     </header>
     </div>
   )

@@ -32,12 +32,12 @@ C13 = Community.create(community_name: "NoPa" )
 
 
 puts 'seeding neighbors...'
-N1 = Neighbor.create(username: "Rose", age: 37, image: "" , email: "rose@email.com", community_id: C3.id, password:"yyyy"  )
-N2 = Neighbor.create(username: "Penny", age: 29, image: "", email: "penny@email.com", community_id: C4.id, password:"yyyy"  )
-N3 = Neighbor.create(username: "Adam", age: 43, image: "", email: "adam@email.com", community_id: C8.id, password:"yyyy" )
-N4 = Neighbor.create(username: "Mickey", age: 33, image: "", email: "mickey@email.com", community_id: C10.id, password:"yyyy" )
-N5 = Neighbor.create(username: "Wendy", age: 52, image: "", email: "wendy@email.com", community_id: C5.id, password:"yyyy")
-N6 = Neighbor.create(username: "Tony", age: 27, image: "", email: "tony@email.com", community_id: C12.id, password:"yyyy")
+N1 = Neighbor.create(name: "Rose", username: "Rose1", age: 37, image: "" , email: "rose@email.com", community_id: C3.id, password:"yyyy"  )
+N2 = Neighbor.create(name: "Penny", username: "Penny1", age: 29, image: "", email: "penny@email.com", community_id: C4.id, password:"yyyy"  )
+N3 = Neighbor.create(name: "Adam",username: "Adam1", age: 43, image: "", email: "adam@email.com", community_id: C8.id, password:"yyyy" )
+N4 = Neighbor.create(name: "Mickey", username: "Mickey1", age: 33, image: "", email: "mickey@email.com", community_id: C10.id, password:"yyyy" )
+N5 = Neighbor.create(name: "Wendy", username: "Wendy1", age: 52, image: "", email: "wendy@email.com", community_id: C5.id, password:"yyyy")
+N6 = Neighbor.create(name: "Tony", username: "Tony1", age: 27, image: "", email: "tony@email.com", community_id: C12.id, password:"yyyy")
 
 puts 'seeding events...'
 

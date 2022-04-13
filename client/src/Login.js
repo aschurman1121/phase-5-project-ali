@@ -11,8 +11,9 @@ import Container from 'react-bootstrap/Container'
 function Login({ onLogin }) {
 
   const [username, setUsername] = useState("");
-  //send password?
-    
+  const [password, setPassword] = useState("");
+
+
     function handleLoginSubmit (e){
       e.preventDefault();
       fetch('/login', {
@@ -20,11 +21,12 @@ function Login({ onLogin }) {
         headers: {
           "Content-Type": "application/json",
          },
-        body: JSON.stringify({username}),
+        body: JSON.stringify({username: username, password: password}),
         // body: JSON.stringify({username, password}),
       })
       .then(r => r.json())
       .then(user => onLogin(user));
+      // .then(user => console.log(user));
     }
       
 
@@ -42,22 +44,27 @@ function Login({ onLogin }) {
             Login here
         <Form onSubmit={handleLoginSubmit}>
           <Form.Group>
-            <Form.Control
-                type="text"
-                value={username}
-                placeholder = "username"
-                onChange={(e) => setUsername(e.target.value)}/>
-        </Form.Group>
-        <Form.Group>
-          <Form.Control
-            type='text'
-            placeholder='password'
-            />
-        </Form.Group>
-        <Button type="submit">Login</Button>
+             <Form.Control
+                 type="text"
+                 value={username}
+                 placeholder = "Username"
+                 onChange={(e) => setUsername(e.target.value)}/>
+             </Form.Group>
+             <Form.Group>
+               <Form.Control
+                  type='text'
+                  value={password}
+                  placeholder='Password'
+                  onChange={(e) => setPassword(e.target.value)}
+                  />
+          </Form.Group>
+        {/* <Link to='/'> */}
+            <Button type="submit" >Login</Button>
+        {/* </Link> */}
         </Form>
+          <br></br>
         <Link to='/signup'>
-        Not a member? Sign up here!
+          <h2>Not a member? Sign up here!</h2>
         </Link>
             </div>
 

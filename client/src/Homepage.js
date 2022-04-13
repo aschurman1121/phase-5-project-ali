@@ -9,29 +9,33 @@ import Button from 'react-bootstrap/Button'
 
 function Homepage() {
 
-    const [events, setEvents] = useState([])
+
+
+
+    const [events, setEvents] = useState([])//create event obj to post
 
     useEffect(() => {
-        fetch('/event')
+        fetch('/events')
         .then(r => r.json())
-        .then(data => setEvents(data))
+        // .then(data => setEvents(data))
+        .then(data => console.log(data))
     }, [])
     
-const allEvents = events.map( e => {
-    return (
-        <EventCard 
-            eventTitle = {e.event_title}
-            key = {e.id}
-            date = {e.date}
-            purpose = {e.purpose}
-            supplies = {e.supplies}
-            location = {e.location}
-            startTime = {e.start_time}
-            endTime = {e.end_time}
-            community = {e.community_id}
-        />
-    )
-})
+// const allEvents = events.map( e => {
+//     return (
+//         <EventCard 
+//             eventTitle = {e.event_title}
+//             key = {e.id}
+//             date = {e.date}
+//             purpose = {e.purpose}
+//             supplies = {e.supplies}
+//             location = {e.location}
+//             startTime = {e.start_time}
+//             endTime = {e.end_time}
+//             community = {e.community_id}
+//         />
+//     )
+// })
 // how do I get to see the difference between neighborhood events & my event.
 // 1 fetch for each user
 // 1 fetch for all the events.
@@ -47,7 +51,7 @@ const allEvents = events.map( e => {
       </div>
         <div className='home'>Homepage
         <div className='event_container'>
-            {allEvents}
+            {/* {allEvents} */}
             <a className='link'>
         <button> 
             <Link to='/newEventForm' style={{ textDecoration: 'none' }}> 

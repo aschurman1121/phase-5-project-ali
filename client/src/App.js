@@ -18,16 +18,16 @@ const [isAuthenticated, setIsAuthenticated] = useState(false)
 
 
 //login?
-useEffect(() => {
-  fetch('/me').then((resp) => {
-    if (resp.ok) {
-      resp.json().then((neighbor)=> setNeighbor(neighbor));
-    }
-  })
-}, []);
+// useEffect(() => {
+//   fetch('/me').then((resp) => {
+//     if (resp.ok) {
+//       resp.json().then((neighbor)=> setNeighbor(neighbor));
+//     }
+//   })
+// }, []);
 
 
-// //authentication
+// // //authentication
 // useEffect(() => {
 //     fetch('/authorized_neighbor')
 //     .then (r => {
@@ -38,16 +38,18 @@ useEffect(() => {
 //           setNeighbor(neighbor);
 //         })
 //         .then(() => {
+//           // fetch('/me')
 //           fetch('/events')
-//           .then(r=> r.json())
+//           .then((r) => r.json())
 //           .then(events => {
-//             // console.log(events)
-//             setEvents(events)
+//             console.log(events)
+//             // setEvents(events)
 //           })
+// // should I tack on another .then here to render the neighbor on the login? or do lines 21-27 take care of that
 //         })
 //       }
 //     })
-// })
+// },[]);
 
 
 // if (neighbor) {
@@ -59,7 +61,7 @@ useEffect(() => {
 //if (neighbor) { return (JSX)}
 // Do I want to set up validations for a false click of login?
 
-// if (!isAuthenticated) return <Login error={"Please login"} setIsAuthenticated = {setIsAuthenticated} setNeighbor={setNeighbor}/>
+if (!isAuthenticated) return <Login error={"Please login"} setIsAuthenticated = {setIsAuthenticated} onLogin={setNeighbor}/>
 
   return (
    <div>
@@ -67,7 +69,9 @@ useEffect(() => {
      {/* {neighbor ? <Login/> : <SignUp/>} */}
        <Routes>
          
-        <Route path='/login' element={<Login />} >
+        <Route path='/login' element={<Login onLogin={setNeighbor}/>} >
+        </Route>
+        <Route path='/logout' element={< Login />}>
         </Route>
         <Route path='/newEventForm' element={<CreateEvent />}>
         </Route>

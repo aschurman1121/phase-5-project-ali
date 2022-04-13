@@ -23,8 +23,11 @@ function SignUp({ onLogin }) {
                 "Content-Type":"application/json",
             },
         body: JSON.stringify({
-            neighbor, password, password_confirmation: passwordConfirmation
+            neighbor, password
         }),
+        // body: JSON.stringify({
+        //     neighbor, password, password_confirmation: passwordConfirmation
+        // }),
         })
         .then(r => r.json())
         .then(onLogin);
@@ -49,7 +52,8 @@ function SignUp({ onLogin }) {
             <Form.Control 
                 type="text" 
                 id="username" 
-                value={password} 
+                // value={username} 
+                value={neighbor} 
                 onChange={(e) => setPassword(e.target.value)}/>
                    </Form.Group>
             <Form.Label> Password: </Form.Label>
@@ -57,7 +61,8 @@ function SignUp({ onLogin }) {
             <Form.Control 
                 type="password"
                 id="password_confirmation"
-                value={passwordConfirmation}
+                // value={passwordConfirmation}
+                value={password}
                 onChange={(e) => setPasswordConfirmation(e.target.value)}/>
             </Form.Group>
             <Form.Group>
