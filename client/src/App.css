@@ -75,10 +75,10 @@ order: 5;
   position: relative;
   width: 747px;
   height: 187px;
-  left: 66px;
-  top: 204px;
+  /* left: 66px;
+  top: 204px; */
   margin: 25px 50px 75px 100px;
-  
+  padding: 15px 15px 15px 15px;  
   background: rgba(177, 133, 219, 0.4);
   flex-direction: columm;
 }

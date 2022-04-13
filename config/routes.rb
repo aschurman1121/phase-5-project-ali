@@ -5,15 +5,15 @@ Rails.application.routes.draw do
   resources :communities
 
   post '/signup', to: "neighbors#create"
-  post '/newEventForm', to: "events#create"
-  patch '/:id/edit', to: "event#edit"
+  post '/events/create', to: "events#create"
+  patch 'events/:id/edit', to: "events#edit"
   post '/login', to: "sessions#create"
   
   get '/authorized_neighbor', to: "neighbor#show"
   get '/me', to: 'neighbors#show'
   # get '/me', to: "event#index"
   # get '/', to: 'neighbors#show'
-  get '/event', to: "events#index"
+  get '/events', to: "events#index"
   
   delete '/logout', to: "sessions#destroy" #fetch to this path (method DELETE) - path to login on front end
   
@@ -25,4 +25,4 @@ Rails.application.routes.draw do
 
 
 
-end
+end 

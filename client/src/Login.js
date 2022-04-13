@@ -11,6 +11,7 @@ import Container from 'react-bootstrap/Container'
 function Login({ onLogin }) {
 
   const [username, setUsername] = useState("");
+  //send password?
     
     function handleLoginSubmit (e){
       e.preventDefault();
@@ -20,6 +21,7 @@ function Login({ onLogin }) {
           "Content-Type": "application/json",
          },
         body: JSON.stringify({username}),
+        // body: JSON.stringify({username, password}),
       })
       .then(r => r.json())
       .then(user => onLogin(user));

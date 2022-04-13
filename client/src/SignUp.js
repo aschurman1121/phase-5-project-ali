@@ -9,7 +9,9 @@ import NavBar from './NavBar';
 
 
 function SignUp({ onLogin }) {
-    const [neighbor, setNeighbor] = useState("")
+
+    // add username to sign up
+    const [neighbor, setNeighbor] = useState("")//this is the one to change?
     const [password, setPassword] = useState("")
     const [passwordConfirmation, setPasswordConfirmation] = useState("")
 

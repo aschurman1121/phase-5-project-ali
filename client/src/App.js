@@ -14,7 +14,10 @@ import EventPage from './EventPage';
 function App() {
 
 const [neighbor, setNeighbor] = useState(null)
+const [isAuthenticated, setIsAuthenticated] = useState(false)
 
+
+//login?
 useEffect(() => {
   fetch('/me').then((resp) => {
     if (resp.ok) {
@@ -23,15 +26,40 @@ useEffect(() => {
   })
 }, []);
 
-if (neighbor) {
-  return <h2> hello {neighbor.name}!</h2>;
-} else{
-  return <Login onLogin={setNeighbor} />
-}
+
+// //authentication
+// useEffect(() => {
+//     fetch('/authorized_neighbor')
+//     .then (r => {
+//       if(r.ok) {
+//         r.json()
+//         .then((neighbor) => {
+//           setIsAuthenticated(true);
+//           setNeighbor(neighbor);
+//         })
+//         .then(() => {
+//           fetch('/events')
+//           .then(r=> r.json())
+//           .then(events => {
+//             // console.log(events)
+//             setEvents(events)
+//           })
+//         })
+//       }
+//     })
+// })
+
+
+// if (neighbor) {
+//   return <h2> hello {neighbor.username}!</h2>;
+// } else{
+//   return <Login onLogin={setNeighbor} />
+// }
 //can I move this Auth to be an if statement then return?
 //if (neighbor) { return (JSX)}
 // Do I want to set up validations for a false click of login?
 
+// if (!isAuthenticated) return <Login error={"Please login"} setIsAuthenticated = {setIsAuthenticated} setNeighbor={setNeighbor}/>
 
   return (
    <div>
