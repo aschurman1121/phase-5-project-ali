@@ -19,7 +19,7 @@ const [username, setUsername] = useState("");
 const [password, setPassword] = useState("");
 const [events, setEvents] = useState([]);
 
-//login?
+//login ---> setNeighbor becomes onLogin
 useEffect(() => {
   fetch('/me').then((resp) => {
     if (resp.ok) {
@@ -72,7 +72,9 @@ if (!isAuthenticated) return <Login error={"Please login"} setIsAuthenticated = 
          
         <Route path='/login' element={<Login username={username} password={password} setUsername={setUsername} setPassword={setPassword} onLogin={setNeighbor}/>} >
         </Route>
-        <Route path='/logout' element={< Login />}>
+        <Route path='/logout' element={< Login 
+        // setLogoutAuthenticated={setIsAuthenticated} setNeighbor={setNeighbor} 
+        />}>
         </Route>
         <Route path='/newEventForm' element={<CreateEvent />}>
         </Route>

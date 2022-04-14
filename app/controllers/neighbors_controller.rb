@@ -1,4 +1,5 @@
 class NeighborsController < ApplicationController
+# rescue_from ActiveRecord::RecordInvalid :rendered_unprocessable_entity
     skip_before_action :authorized_neighbor, only: [:create]
 
 def create
@@ -9,6 +10,9 @@ def create
     else
         render json: { errors: neighbor.errors.full_messages }, status: :unprocessable_entity
     end
+
+    # rescue ActiveRecord::RecordInvalid => invalid
+       
 end
 
 
@@ -25,6 +29,10 @@ def show
 end
 
 private
+
+# def rendered_unprocessable_entity(invalid)
+#     render json: { error: invalid.record.errors}, status: :unprocessable_entity 
+# end
 
 def neighbor_params
     # params.require(:username).permit(:password, :email, :age ,:name)

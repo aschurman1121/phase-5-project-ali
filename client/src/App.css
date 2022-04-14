@@ -1,11 +1,13 @@
-
-#navbar_home {
+* {
+  background-color: #1B9AAA;
+}
+/* #navbar_home {
   background: rgba(177, 133, 219, 0.74);
   position: relative;
-}
+} */
 
 .link{
-  color: white;
+  color: white ;
   /* text-decoration: none; */
 }
 .user_start{
@@ -13,7 +15,7 @@
   width: 1512px;
   height: 982px;
   
-  background: #1B9AAA;
+  background: #F8FFE5;
 
 }
 
@@ -35,6 +37,8 @@ line-height: 140px;
 
 color: #FFFFFF;
 }
+
+
 .login_sign_up{
   position: absolute;
 width: 469px;
@@ -42,7 +46,7 @@ height: 574px;
 left: 142px;
 top: 204px;
 
-background: #F8FFE5;
+background: #F8FFE5 !important;
 
 font-family: 'jsMath-cmbx10';
 font-style: normal;

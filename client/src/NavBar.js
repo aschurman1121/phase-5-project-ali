@@ -1,31 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button'
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
-function NavBar({ onLogout }) {
+function NavBar({ onLogout, setLogoutAuthenticated, setNeighbor }) {
+
+  let navigate = useNavigate();
     
     function handleLogout() {
         fetch('/logout', {
             method: 'DELETE',
-        }).then(()=> onLogout);
-            // move state from app.js to use these
-        // }).then(()=> {
-        //   setIsAuthenticated(false)
-        //   setNeighbor(null)
-        // });
-        // console.log('clicked')
+        }).then(()=> onLogout)
+          .then(()=> {
+          // setIsAuthenticated(false)
+          setLogoutAuthenticated(false)
+          setNeighbor(null) })
+          // .then(() => navigate('/logout'));
+        console.log('clicked')
     }
-
-
 
 
   return (
     <div className="header">
     <header>
-      <Link to='/logout'>
+      
         <Button onClick={handleLogout}>logout</Button>
-        </Link>
+       
     </header>
     </div>
   )

@@ -92,6 +92,7 @@ function SignUp({ onLogin, username, password, setUsername, setPassword }) {
 
             <Form.Group>
                 <Form.Label>Email:</Form.Label>
+                {/* <p>Must be alphanumeric</p> */}
                 <Form.Control
                 type='text'
                 id="email"

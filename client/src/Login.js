@@ -27,7 +27,7 @@ function Login({ onLogin, username, password, setUsername, setPassword }) {
       })
       .then(r => r.json())
       .then(user => {
-        console.log(user)
+        console.log()
         onLogin(user)})
       .then(() => navigate('/'))
       .then(user => console.log(user));
@@ -39,7 +39,7 @@ function Login({ onLogin, username, password, setUsername, setPassword }) {
     <div>
     <NavBar />
     </div> 
- <div className="user_start">
+ <div >
     <Container>
       <div className="title_block">
         Community Corner
@@ -63,7 +63,7 @@ function Login({ onLogin, username, password, setUsername, setPassword }) {
                   />
           </Form.Group>
         {/* <Link to='/'> */}
-            <Button type="submit" >Login</Button>
+            <Button type="submit">Login</Button>
         {/* </Link> */}
         </Form>
           <br></br>
