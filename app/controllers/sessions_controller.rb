@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-    skip_before_action :authorized_neighbor, only: :create
+    # skip_before_action :authorized_neighbor, only: :create
     
     # used for login
     def create
