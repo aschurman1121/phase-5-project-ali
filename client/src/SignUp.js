@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import { Form } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -12,13 +11,16 @@ import { useNavigate } from 'react-router-dom';
 
 function SignUp({ onLogin, username, password, setUsername, setPassword }) {
 
-    // add username to sign up
-    // const [neighbor, setNeighbor] = useState("")//this is the one to change?
-    // const [password, setPassword] = useState("")
-    // const [passwordConfirmation, setPasswordConfirmation] = useState("")
-    const [age, setAge] = useState("")
-    const [nameKey, setNameKey] = useState("")
-    const [email, setEmail] = useState("")
+
+    // const [newNeighbor, setNewNeighbor] = useState({
+    //     username: '',
+    //     name: '',
+    //     age: '',
+    //     // community: '',
+    //     image: '',
+    //     email: '',
+    //     password:''
+    // })
 
     let navigate = useNavigate();
 
@@ -60,8 +62,9 @@ function SignUp({ onLogin, username, password, setUsername, setPassword }) {
             <Form.Control
                 type='text'
                 id='name'
-                value={nameKey}
-                onChange={(e) => setNameKey(e.target.value)}/>
+                // value={nameKey}
+                // onChange={(e) => setNameKey(e.target.value)}
+                />
             </Form.Group>
 
             <Form.Group>
@@ -71,8 +74,9 @@ function SignUp({ onLogin, username, password, setUsername, setPassword }) {
                 id="username" 
                 value={username} 
                 // value={neighbor} 
-                onChange={(e) => setUsername(e.target.value)}>
-                </Form.Control> 
+                // onChange={(e) => setUsername(e.target.value)}
+                />
+               
                    </Form.Group>
 
 
@@ -81,8 +85,9 @@ function SignUp({ onLogin, username, password, setUsername, setPassword }) {
             <Form.Control 
                 type="text"
                 id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}/>
+                // value={password}
+                // onChange={(e) => setPassword(e.target.value)}
+                />
             </Form.Group>
 
             <Form.Group>
@@ -90,10 +95,10 @@ function SignUp({ onLogin, username, password, setUsername, setPassword }) {
                 <Form.Control
                 type='text'
                 id="email"
-                value={email}
-                onChange={(e)=> setEmail(e.target.value)}>
+                // value={email}
+                // onChange={(e)=> setEmail(e.target.value)}
+                />
 
-                </Form.Control>
             </Form.Group>
 
             <Form.Group>
@@ -101,8 +106,8 @@ function SignUp({ onLogin, username, password, setUsername, setPassword }) {
             <Form.Control
                 type="integer"
                 id='age'
-                value={age}
-                onChange={(e) => setAge(e.target.value)}
+                // value={age}
+                // onChange={(e) => setAge(e.target.value)}
                 />
             {/* <Form.Label> Community: </Form.Label> 
             <Form.Control
