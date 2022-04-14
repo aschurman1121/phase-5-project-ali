@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create"
   # delete '/logout', to: "sessions#destroy"
   
-  get '/authorized_neighbor', to: "neighbor#show"
+  get '/authorized_neighbor', to: "neighbors#show"
   get '/me', to: 'neighbors#show'
   # get '/me', to: "event#index"
   # get '/', to: 'neighbors#show'

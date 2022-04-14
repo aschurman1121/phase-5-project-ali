@@ -12,7 +12,7 @@ function Homepage() {
 
 
 
-    const [events, setEvents] = useState([])//create event obj to post
+    // const [events, setEvents] = useState([])//create event obj to post
 
     useEffect(() => {
         fetch('/events')

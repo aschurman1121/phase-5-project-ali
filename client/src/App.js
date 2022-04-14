@@ -17,6 +17,7 @@ const [neighbor, setNeighbor] = useState(null)
 const [isAuthenticated, setIsAuthenticated] = useState(false)
 const [username, setUsername] = useState("");
 const [password, setPassword] = useState("");
+const [events, setEvents] = useState([]);
 
 //login?
 useEffect(() => {
@@ -28,7 +29,7 @@ useEffect(() => {
 }, []);
 
 
-// //authentication
+//authentication
 useEffect(() => {
     fetch('/authorized_neighbor')
     .then (r => {
@@ -43,15 +44,14 @@ useEffect(() => {
           fetch('/events')
           .then((r) => r.json())
           .then(events => {
-            console.log(events)
-            // setEvents(events)
+            // console.log(events)
+            setEvents(events)
           })
 // should I tack on another .then here to render the neighbor on the login? or do lines 21-27 take care of that
         })
       }
     })
 },[]);
-
 
 // if (neighbor) {
 //   return <h2> hello {neighbor.username}!</h2>;
@@ -80,7 +80,7 @@ if (!isAuthenticated) return <Login error={"Please login"} setIsAuthenticated = 
         </Route>
         <Route path='/signup' element={<SignUp username={username} password={password} setUsername={setUsername} setPassword={setPassword}/>} >
         </Route>
-        <Route exact path='/' element={<Homepage />} >
+        <Route exact path='/' element={<Homepage events = {events} setEvents={setEvents} />} >
         </Route>
         </Routes>
  

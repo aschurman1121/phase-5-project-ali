@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState} from 'react'
 import NavBar from './NavBar';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form'
@@ -13,6 +13,7 @@ function Login({ onLogin, username, password, setUsername, setPassword }) {
   // const [username, setUsername] = useState("");
   // const [password, setPassword] = useState("");
 
+  let navigate = useNavigate();
 
     function handleLoginSubmit (e){
       e.preventDefault();
@@ -25,8 +26,11 @@ function Login({ onLogin, username, password, setUsername, setPassword }) {
         // body: JSON.stringify({username, password}),
       })
       .then(r => r.json())
-      .then(user => onLogin(user));
-      // .then(user => console.log(user));
+      .then(user => {
+        console.log(user)
+        onLogin(user)})
+      .then(() => navigate('/'))
+      .then(user => console.log(user));
     }
       
 

@@ -4,8 +4,8 @@ class NeighborsController < ApplicationController
 def create
     neighbor = Neighbor.create!(neighbor_params)
     # byebug
-    if user.valid?
-        render json: user, status: :created
+    if neighbor.valid?
+        render json: neighbor, status: :created
     else
         render json: { errors: neighbor.errors.full_messages }, status: :unprocessable_entity
     end
@@ -27,7 +27,8 @@ end
 private
 
 def neighbor_params
-    params.permit(:username, :password, :password_confirmation)
+    # params.require(:username).permit(:password, :email, :age ,:name)
+    params.permit(:username, :password, :email, :age ,:name)
 end
 
 
