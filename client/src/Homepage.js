@@ -4,10 +4,10 @@ import EventPage from './EventPage'
 import EventCard from './EventCard'
 import NavBar from './NavBar';
 import Button from 'react-bootstrap/Button'
+import Calendar from './Calendar';
 
 
-
-function Homepage() {
+function Homepage({ events, setEvents }) {
 
 
 
@@ -17,25 +17,25 @@ function Homepage() {
     useEffect(() => {
         fetch('/events')
         .then(r => r.json())
-        // .then(data => setEvents(data))
-        .then(data => console.log(data))
+        .then(data => setEvents(data))
+        // .then(data => console.log(data))
     }, [])
     
-// const allEvents = events.map( e => {
-//     return (
-//         <EventCard 
-//             eventTitle = {e.event_title}
-//             key = {e.id}
-//             date = {e.date}
-//             purpose = {e.purpose}
-//             supplies = {e.supplies}
-//             location = {e.location}
-//             startTime = {e.start_time}
-//             endTime = {e.end_time}
-//             community = {e.community_id}
-//         />
-//     )
-// })
+const allEvents = events.map( e => {
+    return (
+        <EventCard 
+            eventTitle = {e.event_title}
+            key = {e.id}
+            date = {e.date}
+            purpose = {e.purpose}
+            supplies = {e.supplies}
+            location = {e.location}
+            startTime = {e.start_time}
+            endTime = {e.end_time}
+            community = {e.community_id}
+        />
+    )
+})
 // how do I get to see the difference between neighborhood events & my event.
 // 1 fetch for each user
 // 1 fetch for all the events.
@@ -51,7 +51,8 @@ function Homepage() {
       </div>
         <div className='home'>Homepage
         <div className='event_container'>
-            {/* {allEvents} */}
+            {allEvents}
+            <Calendar />
             <a className='link'>
         <button> 
             <Link to='/newEventForm' style={{ textDecoration: 'none' }}> 

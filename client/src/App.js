@@ -44,7 +44,7 @@ useEffect(() => {
           fetch('/events')
           .then((r) => r.json())
           .then(events => {
-            // console.log(events)
+            console.log(events)
             setEvents(events)
           })
         })
@@ -53,34 +53,43 @@ useEffect(() => {
 },[]);
 
 // if (neighbor) {
-//   return <h2> hello {neighbor.username}!</h2>;
-// } else{
-//   return <Login onLogin={setNeighbor} />
+//   return <Homepage /> 
+// } else {
+//   <Login username={username} password={password} setUsername={setUsername} setPassword={setPassword} onLogin={setNeighbor}/>;
 // }
 //can I move this Auth to be an if statement then return?
 //if (neighbor) { return (JSX)}
 // Do I want to set up validations for a false click of login?
 
-if (!isAuthenticated) return <Login error={"Please login"} setIsAuthenticated = {setIsAuthenticated} onLogin={setNeighbor} setUsername={setUsername} setPassword={setPassword} username={username} password={password} />
+// if (!isAuthenticated) return <Login error={"Please login"} setIsAuthenticated = {setIsAuthenticated} onLogin={setNeighbor} setUsername={setUsername} setPassword={setPassword} username={username} password={password} />
 
   return (
    <div>
-     
-     {/* {neighbor ? <Login/> : <SignUp/>} */}
+     {/* <Routes> */}
+     {/* {neighbor ? <Login/> : null} */}
+     {/* </Routes> */}
        <Routes>
-        <Route exact path='/homepage' element={<Homepage events = {events} setEvents={setEvents} />} >
-        </Route>
+        <Route exact path='/homepage' element={<Homepage events = {events} setEvents={setEvents} />} />
+       </Routes>
          
-        <Route exact path='/' element={<Login username={username} password={password} setUsername={setUsername} setPassword={setPassword} onLogin={setNeighbor}/>} >
-        </Route>
-        <Route path='/logout' element={< Login />}>
-        </Route>
-        <Route path='/newEventForm' element={<CreateEvent />}>
-        </Route>
-        <Route path='/:id/edit' element={<EventPage />}>
-        </Route>
-        <Route path='/signup' element={<SignUp username={username} password={password} setUsername={setUsername} setPassword={setPassword}/>} >
-        </Route>
+       <Routes>
+        <Route exact path='/' element={<Login username={username} password={password} setUsername={setUsername} setPassword={setPassword} onLogin={setNeighbor}/>} />
+        </Routes>
+
+        <Routes>
+        <Route path='/logout' element={< Login />}/>
+        </Routes>
+
+        <Routes>
+        <Route path='/newEventForm' element={<CreateEvent />}/>
+        </Routes>
+
+        <Routes>
+        <Route path='/:id/edit' element={<EventPage />}/>
+        </Routes>
+
+        <Routes>
+        <Route path='/signup' element={<SignUp username={username} password={password} setUsername={setUsername} setPassword={setPassword}/>} />
         </Routes>
  
    </div>

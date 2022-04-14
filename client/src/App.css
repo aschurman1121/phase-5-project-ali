@@ -24,8 +24,8 @@
   position: relative;
 width: 968px;
 height: 531px;
-left: 627px;
-top: 209px;
+left: 535px;
+top: 240px;
 
 font-family: 'jsMath-cmbx10';
 font-style: normal;
@@ -36,6 +36,8 @@ line-height: 140px;
 color: #FFFFFF;
 }
 .login_sign_up{
+  border-radius: 70px;
+  padding: 4rem;
   position: absolute;
 width: 469px;
 height: 574px;

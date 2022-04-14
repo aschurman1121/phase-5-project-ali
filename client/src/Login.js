@@ -25,7 +25,7 @@ function Login({ onLogin, username, password, setUsername, setPassword }) {
       .then(user => {
         // console.log(user)
         onLogin(user)
-        navigate('/homepage', {replace: true})
+        navigate('/homepage')
 
         })
       // .then(() => navigate('/homepage'))
