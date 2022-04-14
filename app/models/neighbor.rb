@@ -1,15 +1,19 @@
 class Neighbor < ApplicationRecord
     has_secure_password
 
-# def password=(new_password)
-#     salt = BCrypt::Engine::generate_salt
-#     self.password_digest = BCrypt::Engine::hash_secret(new_password, salt)
-# end
+    has_many :communities
+    has_many :events, through: :communities
 
-# def authenticate(password)
-#     salt = password_digest[0..28]
-#     return nil unless BCrypt::Engine::hash_secret(password, salt) == self.password_digest
-# end
+    # validates :username, length: { minimum: 3 } && uniqueness: :true #with: /^[A-Za-z0-9]+$/, message: "Please use both letters and numbers"
 
+    # validates :password, length: { minimum: 3 }
+
+    # validates :name, presence: true
+
+    # validates :age, numericality: true, message: "Must be a number!"
+
+    # validates :email, uniqueness: :true
+    
+    validates :username, presence: true, uniqueness: :true
 
 end
