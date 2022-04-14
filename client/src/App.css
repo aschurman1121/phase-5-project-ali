@@ -43,6 +43,7 @@ width: 469px;
 height: 574px;
 left: 142px;
 top: 204px;
+text-align:center;
 
 background: #F8FFE5;
 
@@ -83,4 +84,15 @@ order: 5;
   padding: 15px 15px 15px 15px;  
   background: rgba(177, 133, 219, 0.4);
   flex-direction: columm;
+}
+
+.username_password_form_inputs{
+  padding: 1px;
+  margin-top: 95px;
+}
+
+#sign_up_link{
+ font-size: 25px ;
+ text-align: center;
+ margin-top: 5px;
 }

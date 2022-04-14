@@ -43,7 +43,8 @@ function Login({ onLogin, username, password, setUsername, setPassword }) {
         Community Corner
       </div>
       <div className='login_sign_up'>
-            Login here
+            Login
+            <div className='username_password_form_inputs'>
         <Form onSubmit={handleLoginSubmit}>
           <Form.Group>
              <Form.Control
@@ -64,9 +65,10 @@ function Login({ onLogin, username, password, setUsername, setPassword }) {
             <Button type="submit" >Login</Button>
         {/* </Link> */}
         </Form>
+          </div>
           <br></br>
         <Link to='/signup'>
-          <h2>Not a member? Sign up here!</h2>
+          <p id='sign_up_link'>Not a member? Sign up here!</p>
         </Link>
             </div>
 
