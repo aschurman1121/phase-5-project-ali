@@ -38,6 +38,6 @@ end
 
 # https://www.reddit.com/r/rails/comments/86342o/500_internal_server_error_with_respond_with/
 
-# answer from 4 years ago
+# answer from 4 years ago vvv
 # My suspicion is that respond_with is trying to redirect to the users index action because the user record is valid but not persisted. By convention, users_url should be defined when a users index route is defined. Since it's undefined,  ----> I'm guessing your routes.rb file does not have a users index action.
 # The solution depends on what you expect the response to be in the valid case. If it were me, I'd not use responders here and be explicit about what to return in the valid and invalid cases.
