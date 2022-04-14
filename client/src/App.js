@@ -77,7 +77,7 @@ useEffect(() => {
         </Routes>
 
         <Routes>
-        <Route path='/logout' element={< Login />}/>
+        <Route path='/logout' element={<Login username={username} password={password} setUsername={setUsername} setPassword={setPassword} onLogin={setNeighbor}/>} />
         </Routes>
 
         <Routes>

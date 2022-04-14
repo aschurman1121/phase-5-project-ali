@@ -33,15 +33,12 @@ function SignUp({ onLogin, username, password, setUsername, setPassword }) {
             },
         body: JSON.stringify({
             username, password
-        }),
-        // body: JSON.stringify({
-        //     neighbor, password, password_confirmation: passwordConfirmation
-        // }),
         })
+
         .then(r => r.json())
         .then(onLogin)
-        .then(() => navigate('/'));
-    }
+        .then(() => navigate('/'))
+    })}
 
   return (
     <>
@@ -56,6 +53,7 @@ function SignUp({ onLogin, username, password, setUsername, setPassword }) {
       </div>
       <div className='login_sign_up'>
     <h2>SignUp</h2>
+            <div id='sign_up'>
                 <Form onSubmit={handleSignUpSubmit}>
              <Form.Group>
              <Form.Label>Neighbor Name:</Form.Label>
@@ -63,10 +61,7 @@ function SignUp({ onLogin, username, password, setUsername, setPassword }) {
                 type='text'
                 id='name'
                 value={nameKey}
-                onChange={(e) => setNameKey(e.target.value)}
-               / >
-
-            {/* </Form.Control> */}
+                onChange={(e) => setNameKey(e.target.value)}/>
             </Form.Group>
 
             <Form.Group>
@@ -119,6 +114,7 @@ function SignUp({ onLogin, username, password, setUsername, setPassword }) {
         <Button type="submit">Submit</Button>
      
         </Form>
+        </div>
         </div>
         </Container>
 

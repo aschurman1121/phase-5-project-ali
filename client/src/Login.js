@@ -30,7 +30,9 @@ function Login({ onLogin, username, password, setUsername, setPassword }) {
         })
       // .then(() => navigate('/homepage'))
     }
-      
+      //if(loggged in)
+      // homepage
+      //else 
 
   return (
     <>
@@ -53,6 +55,7 @@ function Login({ onLogin, username, password, setUsername, setPassword }) {
                  placeholder = "Username"
                  onChange={(e) => setUsername(e.target.value)}/>
              </Form.Group>
+             <br></br>
              <Form.Group>
                <Form.Control
                   type='text'
@@ -61,9 +64,9 @@ function Login({ onLogin, username, password, setUsername, setPassword }) {
                   onChange={(e) => setPassword(e.target.value)}
                   />
           </Form.Group>
-        {/* <Link to='/'> */}
+            <br></br>
             <Button type="submit" >Login</Button>
-        {/* </Link> */}
+   
         </Form>
           </div>
           <br></br>

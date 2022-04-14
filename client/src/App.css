@@ -37,7 +37,7 @@ color: #FFFFFF;
 }
 .login_sign_up{
   border-radius: 70px;
-  padding: 4rem;
+  padding: 3rem;
   position: absolute;
 width: 469px;
 height: 574px;
@@ -50,8 +50,13 @@ background: #F8FFE5;
 font-family: 'jsMath-cmbx10';
 font-style: normal;
 font-weight: 700;
-font-size: 45px;
-line-height: 49px;
+font-size: 30px;
+line-height: 30px;
+}
+
+#sign_up{
+  top: 110px;
+  height: 974px;
 }
 
 .event_container {
