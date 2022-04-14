@@ -52,7 +52,7 @@ const allEvents = events.map( e => {
         <div className='home'>Homepage
         <div className='event_container'>
             {allEvents}
-            <Calendar />
+            {/* <Calendar /> */}
             <a className='link'>
         <button> 
             <Link to='/newEventForm' style={{ textDecoration: 'none' }}> 

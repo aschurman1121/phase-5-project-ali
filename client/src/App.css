@@ -10,21 +10,21 @@
 }
 .user_start{
   position: relative;
-  width: 1512px;
-  height: 982px;
-  
+  width: 100vw;
+  height: 100vw;
   background: #1B9AAA;
 
 }
 
 .header{
   background: #1B9AAA;
+
 }
 .title_block {
   position: relative;
 width: 968px;
 height: 531px;
-left: 535px;
+left: 450px;
 top: 240px;
 
 font-family: 'jsMath-cmbx10';

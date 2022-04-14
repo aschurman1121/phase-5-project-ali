@@ -5,29 +5,7 @@ import Card from 'react-bootstrap/Card'
 function EventCard({ eventTitle, date, purpose, supplies, location, startTime, endTime }) {
 
   
-  // const [events, setEvents] = useState([])
-  
-  // useEffect(() => {
-  //     fetch('/event')
-  //     .then(r => r.json())
-  //     .then(data => setEvents(data))
-  // }, [])
-  
-  // const allEvents = events.map( e => {
-  // return (
-  //     <EventPage 
-  //         eventTitle = {e.event_title}
-  //         key = {e.id}
-  //         date = {e.date}
-  //         purpose = {e.purpose}
-  //         supplies = {e.supplies}
-  //         location = {e.location}
-  //         startTime = {e.start_time}
-  //         endTimee = {e.end_time}
-  //         community = {e.community_id}
-  //     />
-  // )
-  // })
+
   return (
     <div className='event_card'>
     

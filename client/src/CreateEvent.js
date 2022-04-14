@@ -2,34 +2,38 @@ import React, {useState} from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import NavBar from './NavBar'
+import { useNavigate } from 'react-router-dom'
 
 function CreateEvent() {
+       let navigate = useNavigate()
 
        //this page is on the /newEventForm
 
-       // const newEventObj = {
-       // 'event title',
-       // 'date',
-       // 'purpose',
-       // 'supplies',
-       // 'location',
-       // ''
-       // }
+       const newEventObj = {
+       eventTitle: '',
+       purpose: '',
+       supplies: '',
+       location: '',
+       startTime: '',
+       endTime: '',
+       community: ''
+       }
 
-    const [newEvent, setNewEvent] = useState("")
+    const [newEvent, setNewEvent] = useState({newEventObj})
 
     function handleEventSubmit(e){
         e.preventDefault();
         fetch('/newEventForm', {
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({newEvent})
         })
         .then(r => r.json()) 
-        .then(data => setNewEvent(data))
-    }
+        .then(data => setNewEvent((eventObj) => [...eventObj, data])
+        .then(navigate.push('/events'))
+       , []) }
 
 
 
