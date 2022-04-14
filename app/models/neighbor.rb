@@ -29,5 +29,15 @@ end
 # It may occur client does not provide the proper authentication credentials to the server within the request time.
 # cleared cache
 # flushed dns
-# still receiving 401 > login with user > undefined in the console
 # ran rake db:reset
+# rake db:seeded this morning
+# commented out before_action in main branch
+# branches getting different errors. 
+        # Main: 500 on render > login with seed user > { " Not Authorized" } -> main branch has before_action & skip_before commented out
+        # Broke: 401 > login with user > undefined in the console
+
+# https://www.reddit.com/r/rails/comments/86342o/500_internal_server_error_with_respond_with/
+
+# answer from 4 years ago
+# My suspicion is that respond_with is trying to redirect to the users index action because the user record is valid but not persisted. By convention, users_url should be defined when a users index route is defined. Since it's undefined,  ----> I'm guessing your routes.rb file does not have a users index action.
+# The solution depends on what you expect the response to be in the valid case. If it were me, I'd not use responders here and be explicit about what to return in the valid and invalid cases.
