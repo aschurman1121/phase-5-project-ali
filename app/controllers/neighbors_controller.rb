@@ -13,7 +13,8 @@ end
 
 
 def show
-    neighbor = Neighbor.find_by(username: params[:username])
+    # neighbor = Neighbor.find_by(username: params[:username])
+    neighbor = Neighbor.find_by(id: session[:current_neighbor])
     if neighbor
         render json: neighbor
     # neighbor = Neighbor.find(session[:current_neighbor])

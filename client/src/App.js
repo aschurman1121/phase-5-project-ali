@@ -28,7 +28,7 @@ const [events, setEvents] = useState([]);
 //   })
 // }, []);
 
-
+console.log(neighbor)
 //authentication
 useEffect(() => {
     fetch('/authorized_neighbor')
@@ -61,15 +61,17 @@ useEffect(() => {
 //if (neighbor) { return (JSX)}
 // Do I want to set up validations for a false click of login?
 
-// if (!isAuthenticated) return <Login error={"Please login"} setIsAuthenticated = {setIsAuthenticated} onLogin={setNeighbor} setUsername={setUsername} setPassword={setPassword} username={username} password={password} />
+if (!isAuthenticated) return <Login error={"Please login"} setIsAuthenticated = {setIsAuthenticated} onLogin={setNeighbor} setUsername={setUsername} setPassword={setPassword} username={username} password={password} />
 
   return (
    <div>
      
      {/* {neighbor ? <Login/> : <SignUp/>} */}
        <Routes>
+        <Route exact path='/homepage' element={<Homepage events = {events} setEvents={setEvents} />} >
+        </Route>
          
-        <Route path='/login' element={<Login username={username} password={password} setUsername={setUsername} setPassword={setPassword} onLogin={setNeighbor}/>} >
+        <Route exact path='/' element={<Login username={username} password={password} setUsername={setUsername} setPassword={setPassword} onLogin={setNeighbor}/>} >
         </Route>
         <Route path='/logout' element={< Login />}>
         </Route>
@@ -78,8 +80,6 @@ useEffect(() => {
         <Route path='/:id/edit' element={<EventPage />}>
         </Route>
         <Route path='/signup' element={<SignUp username={username} password={password} setUsername={setUsername} setPassword={setPassword}/>} >
-        </Route>
-        <Route exact path='/' element={<Homepage events = {events} setEvents={setEvents} />} >
         </Route>
         </Routes>
  

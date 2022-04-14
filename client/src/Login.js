@@ -1,4 +1,4 @@
-import React, { useState} from 'react'
+import React from 'react'
 import NavBar from './NavBar';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -10,9 +10,6 @@ import Container from 'react-bootstrap/Container'
 
 function Login({ onLogin, username, password, setUsername, setPassword }) {
 
-  // const [username, setUsername] = useState("");
-  // const [password, setPassword] = useState("");
-
   let navigate = useNavigate();
 
     function handleLoginSubmit (e){
@@ -23,14 +20,15 @@ function Login({ onLogin, username, password, setUsername, setPassword }) {
           "Content-Type": "application/json",
          },
         body: JSON.stringify({username: username, password: password}),
-        // body: JSON.stringify({username, password}),
       })
       .then(r => r.json())
       .then(user => {
-        console.log(user)
-        onLogin(user)})
-      .then(() => navigate('/'))
-      .then(user => console.log(user));
+        // console.log(user)
+        onLogin(user)
+        navigate('/homepage', {replace: true})
+
+        })
+      // .then(() => navigate('/homepage'))
     }
       
 
