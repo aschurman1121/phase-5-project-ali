@@ -19,14 +19,14 @@ const [username, setUsername] = useState("");
 const [password, setPassword] = useState("");
 const [events, setEvents] = useState([]);
 
-//login --> setNeighbor becomes onLogin
-useEffect(() => {
-  fetch('/me').then((resp) => {
-    if (resp.ok) {
-      resp.json().then((neighbor)=> setNeighbor(neighbor));
-    }
-  })
-}, []);
+// //login --> setNeighbor becomes onLogin
+// useEffect(() => {
+//   fetch('/me').then((resp) => {
+//     if (resp.ok) {
+//       resp.json().then((neighbor)=> setNeighbor(neighbor));
+//     }
+//   })
+// }, []);
 
 
 //authentication
@@ -61,7 +61,7 @@ useEffect(() => {
 //if (neighbor) { return (JSX)}
 // Do I want to set up validations for a false click of login?
 
-if (!isAuthenticated) return <Login error={"Please login"} setIsAuthenticated = {setIsAuthenticated} onLogin={setNeighbor} setUsername={setUsername} setPassword={setPassword}/>
+// if (!isAuthenticated) return <Login error={"Please login"} setIsAuthenticated = {setIsAuthenticated} onLogin={setNeighbor} setUsername={setUsername} setPassword={setPassword} username={username} password={password} />
 
   return (
    <div>

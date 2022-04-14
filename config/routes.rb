@@ -11,8 +11,7 @@ Rails.application.routes.draw do
   # delete '/logout', to: "sessions#destroy"
   
   get '/authorized_neighbor', to: "neighbors#show"
-  get '/me', to: 'neighbors#show'
-  # get '/me', to: "event#index"
+  # get '/me', to: 'neighbors#show'
   # get '/', to: 'neighbors#show'
   get '/events', to: "events#index"
   

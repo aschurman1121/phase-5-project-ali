@@ -1,9 +1,10 @@
 class SessionsController < ApplicationController
-    # skip_before_action :authorized_neighbor, only: :create
+    skip_before_action :authorized_neighbor, only: :create
     
     # used for login
     def create
         neighbor = Neighbor.find_by(username: params[:username])
+        # byebug
         puts neighbor
         if neighbor&.authenticate(params[:password]) 
             session[:current_neighbor] = neighbor.id

@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-  # before_action :authorized_neighbor
+  before_action :authorized_neighbor
   include ActionController::Cookies
 
 
