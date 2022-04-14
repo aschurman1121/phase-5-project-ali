@@ -1,5 +1,5 @@
 class NeighborsController < ApplicationController
-    skip_before_action :authorized_neighbor, only: [:create]
+    skip_before_action :authorized_neighbor, only: :create
 
 def create
     neighbor = Neighbor.create!(neighbor_params)

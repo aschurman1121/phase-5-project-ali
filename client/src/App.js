@@ -19,7 +19,7 @@ const [username, setUsername] = useState("");
 const [password, setPassword] = useState("");
 const [events, setEvents] = useState([]);
 
-//login?
+//login --> setNeighbor becomes onLogin
 useEffect(() => {
   fetch('/me').then((resp) => {
     if (resp.ok) {
@@ -47,7 +47,6 @@ useEffect(() => {
             // console.log(events)
             setEvents(events)
           })
-// should I tack on another .then here to render the neighbor on the login? or do lines 21-27 take care of that
         })
       }
     })

@@ -1,10 +1,9 @@
 class SessionsController < ApplicationController
-    skip_before_action :authorized_neighbor, only: [:create]
+    skip_before_action :authorized_neighbor, only: :create
     
     # used for login
     def create
         neighbor = Neighbor.find_by(username: params[:username])
-        # debugger
         puts neighbor
         if neighbor&.authenticate(params[:password]) 
             session[:current_neighbor] = neighbor.id
@@ -24,7 +23,6 @@ class SessionsController < ApplicationController
 #     if neighbor&.authenticate(params[:password])
 #         session[:current_neighbor] = neighbor.id
 #         render json: user, status: :ok
-
 #     else
 #         render json: { error: "Invalid Password or Username"}, status: :unprocessable_entity
 #     end
