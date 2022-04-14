@@ -3,5 +3,5 @@ class Event < ApplicationRecord
     has_many :neighbors, through: :communities
 
 
-    validates :purpose, :supplies, length: { maximum: 500 }
+    # validates :purpose, :supplies, length: { maximum: 500 }
 end

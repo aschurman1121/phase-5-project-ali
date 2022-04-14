@@ -1,5 +1,4 @@
 class NeighborsController < ApplicationController
-# rescue_from ActiveRecord::RecordInvalid :rendered_unprocessable_entity
     skip_before_action :authorized_neighbor, only: [:create]
 
 def create
@@ -10,10 +9,11 @@ def create
     else
         render json: { errors: neighbor.errors.full_messages }, status: :unprocessable_entity
     end
+end
 
+ # rescue_from ActiveRecord::RecordInvalid :rendered_unprocessable_entity
     # rescue ActiveRecord::RecordInvalid => invalid
        
-end
 
 
 def show

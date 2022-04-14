@@ -5,7 +5,6 @@ class SessionsController < ApplicationController
     def create
         neighbor = Neighbor.find_by(username: params[:username])
         # debugger
-        puts neighbor
         if neighbor&.authenticate(params[:password]) 
             session[:current_neighbor] = neighbor.id
             

@@ -2,7 +2,6 @@ class ApplicationController < ActionController::API
   before_action :authorized_neighbor
   include ActionController::Cookies
 
-
   def current_neighbor
     Neighbor.find_by(id: session[:current_neighbor])
   end
