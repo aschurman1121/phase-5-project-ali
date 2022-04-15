@@ -1,9 +1,8 @@
 import React, { useState, useEffect} from 'react';
+import { Route, Routes } from "react-router-dom";
 import './App.css';
 import Login from './Login';
 import NavBar from './NavBar';
-
-import { Route, BrowserRouter, Routes } from "react-router-dom";
 import SignUp from './SignUp';
 import Homepage from './Homepage';
 import CreateEvent from './CreateEvent';
@@ -30,14 +29,6 @@ const [newEvent, setNewEvent] = useState({
 
 })
 
-// //login --> setNeighbor becomes onLogin
-// useEffect(() => {
-//   fetch('/me').then((resp) => {
-//     if (resp.ok) {
-//       resp.json().then((neighbor)=> setNeighbor(neighbor));
-//     }
-//   })
-// }, []);
 
 console.log(neighbor)
 //authentication
@@ -63,23 +54,16 @@ useEffect(() => {
     })
 },[]);
 
-// if (neighbor) {
-//   return <Homepage /> 
-// } else {
-//   <Login username={username} password={password} setUsername={setUsername} setPassword={setPassword} onLogin={setNeighbor}/>;
-// }
-//can I move this Auth to be an if statement then return?
-//if (neighbor) { return (JSX)}
-// Do I want to set up validations for a false click of login?
 
-// if (!isAuthenticated) return <Login error={"Please login"} setIsAuthenticated = {setIsAuthenticated} onLogin={setNeighbor} setUsername={setUsername} setPassword={setPassword} username={username} password={password} />
 
   return (
    <div>
      {/* <Routes> */}
      {/* {neighbor ? <Login/> : null} */}
      {/* </Routes> */}
+     <NavBar/>
        <Routes>
+
         <Route exact path='/homepage' element={<Homepage events = {events} setEvents={setEvents} newEvent={newEvent} setNewEvent={setNewEvent} />} />
        </Routes>
          

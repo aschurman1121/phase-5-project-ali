@@ -31,45 +31,44 @@ function Homepage({ events, setEvents, newEvent, setNewEvent }) {
         // .then(data => console.log(data))
     }, [])
     
-// const allEvents = events.map( e => {
-//     return (
-//         <EventCard 
-//             eventTitle = {e.event_title}
-//             key = {e.id}
-//             date = {e.date}
-//             purpose = {e.purpose}
-//             supplies = {e.supplies}
-//             location = {e.location}
-//             startTime = {e.start_time}
-//             endTime = {e.end_time}
-//             community = {e.community_id}
-//         />
-//     )
-// })
-// how do I get to see the difference between neighborhood events & my event.
-// 1 fetch for each user
-// 1 fetch for all the events.
-// each user fetch, conditionally render based on a match 
-// ---would I do this on the front end?
+const allEvents = events.map( e => {
+    return (
+        <EventCard 
+            eventTitle = {e.event_title}
+            key = {e.id}
+            date = {e.date}
+            purpose = {e.purpose}
+            supplies = {e.supplies}
+            location = {e.location}
+            startTime = {e.start_time}
+            endTime = {e.end_time}
+            community = {e.community_id}
+        />
+    )
+})
+
 
 
   return (
       <>
-      <div id='navbar_home'>
-      <NavBar/>
-      </div>
-        <div className='home'>Homepage
-        <div className='event_container'>
-            {/* {allEvents} */}
+     <div className='home'>Homepage
+        <div className='event_container' >
+            <div className='card_scroll'>
+            <h1 id='event_container_header'> Events | Calendar </h1>
+            {allEvents}
+            </div>
             <Calendar />
         
             {/* <CreateEvent newEvent={newEvent} setNewEvent={setNewEvent} /> */}
+        </div>
+            <div className='user_info'> 
+            this is where the user will render
             <a className='link'>
-        <button> 
-            <Link to='/newEventForm' style={{ textDecoration: 'none' }}> 
-            Create New Event
-            </Link> 
-            </button>
+                <button> 
+                     <Link to='/newEventForm' style={{ textDecoration: 'none' }}> 
+                    Create New Event
+                     </Link> 
+                 </button>
             </a>
         </div>
     </div>

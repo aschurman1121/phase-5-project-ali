@@ -51,10 +51,6 @@ function CreateEvent( { newEvent, setNewEvent }) {
 
 
   return (
-       <>
-       <div id='navbar_home'>
-       <NavBar/>
-       </div>
     <div>Create Event
         <Form>
          <Form.Group>
@@ -129,7 +125,6 @@ function CreateEvent( { newEvent, setNewEvent }) {
 
         <Button onClick={handleEventSubmit}>Submit Event</Button>
     </div>
-    </>
   )
 }
 

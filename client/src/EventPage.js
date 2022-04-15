@@ -12,9 +12,7 @@ function EventPage() {
 
   return (
     <>
-    <div id='navbar_home'>
-    <NavBar/>
-    </div>
+
     <div>EventPage
      
    

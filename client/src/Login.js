@@ -35,10 +35,7 @@ function Login({ onLogin, username, password, setUsername, setPassword }) {
       //else 
 
   return (
-    <>
-    <div>
-    <NavBar />
-    </div> 
+
  <div className="user_start">
     <Container>
       <div className="title_block">
@@ -78,7 +75,6 @@ function Login({ onLogin, username, password, setUsername, setPassword }) {
     </Container>
     </div>
 
-    </>
 
   )
 }

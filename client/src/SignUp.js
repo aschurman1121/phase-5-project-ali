@@ -56,10 +56,7 @@ function SignUp({ onLogin, username, password, setUsername, setPassword }) {
 
   return (
     <>
-    <div>
-    <NavBar />
-    </div> 
-
+  
     <div className="user_start">
     <Container> 
     <div className="title_block">
