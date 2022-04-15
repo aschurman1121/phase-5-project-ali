@@ -8,7 +8,6 @@ class CreateEvents < ActiveRecord::Migration[6.1]
       t.string :location
       t.time :start_time
       t.time :end_time
-      t.integer :community_id
 
       t.timestamps
     end

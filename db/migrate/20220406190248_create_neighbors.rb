@@ -4,7 +4,7 @@ class CreateNeighbors < ActiveRecord::Migration[6.1]
       t.string :username
       t.string :name
       t.integer :age
-      t.integer :community_id
+  
       t.string :image
       t.string :email
 
