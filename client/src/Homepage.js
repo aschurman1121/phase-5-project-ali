@@ -53,7 +53,7 @@ const allEvents = events.map( e => {
                 <button> 
                      {/* <Link to='/newEventForm' style={{ textDecoration: 'none' }}>  */}
                     Create New Event
-            <CreateEvent newEvent={newEvent} setNewEvent={setNewEvent} />
+            <CreateEvent events = {events} setEvents={setEvents} newEvent={newEvent} setNewEvent={setNewEvent} />
                      {/* </Link>  */}
                  </button>
             </a>

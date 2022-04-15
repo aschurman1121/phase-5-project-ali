@@ -66,6 +66,8 @@ return (
      
         <Route path='/signup' element={<SignUp username={username} password={password} setUsername={setUsername} setPassword= {setPassword}/>} />
 
+        <Route path='/newEventForm' element={<CreateEvent newEvent={newEvent} setNewEvent={setNewEvent} events = {events} setEvents={setEvents} />}/>
+
         <Route exact path='/homepage' element={<Homepage events = {events} setEvents={setEvents} newEvent={newEvent} setNewEvent={setNewEvent} />} />
                
       
@@ -75,7 +77,6 @@ return (
         <Route path='/logout' element={<Login username={username} password={password} setUsername={setUsername} setPassword={setPassword} onLogin={setNeighbor}/>} />
         
       
-        <Route path='/newEventForm' element={<CreateEvent newEvent={newEvent} setNewEvent={setNewEvent}/>}/>
         
       
         <Route path='/:id/edit' element={<EventPage />}/>

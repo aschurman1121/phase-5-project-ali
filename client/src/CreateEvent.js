@@ -4,24 +4,13 @@ import Button from 'react-bootstrap/Button'
 import NavBar from './NavBar'
 import { useNavigate } from 'react-router-dom'
 
-function CreateEvent( { newEvent, setNewEvent }) {
+function CreateEvent( { newEvent, setNewEvent, events, setEvents }) {
 
        let navigate = useNavigate();
 
        //this page is on the /newEventForm
 
 
-//     const [newEvent, setNewEvent] = useState({
-//        eventTitle: '',
-//        date:'',
-//        purpose: '',
-//        supplies: '',
-//        location: '',
-//        startTime: '',
-//        endTime: '',
-//        community: ''
-
-//     })
 
 // showing the data upon refresh, erring out when submit is pressed
     function handleEventSubmit(e){
@@ -35,8 +24,8 @@ function CreateEvent( { newEvent, setNewEvent }) {
         })
         .then(r => r.json()) 
        //  .then((data) => console.log(data))
-       //  .then(data => setNewEvent((currentEvent) => [...currentEvent, data]))
-        .then(data => setNewEvent(data))
+        .then(data => setEvents((events) => [...events, data]))
+       //  .then(data => setNewEvent(data))
         .then(navigate('/homepage'))
        //  .then(navigate('/homepage').push)
     }
