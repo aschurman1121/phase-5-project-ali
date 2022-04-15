@@ -1,5 +1,12 @@
 class NeighborsController < ApplicationController
-    skip_before_action :authorized_neighbor, only: :create
+    # skip_before_action :authorized_neighbor, only: :create
+
+
+def index
+    neighbor = Neighbor.all
+    render json: neighbor
+end
+
 
 def create
     neighbor = Neighbor.create!(neighbor_params)

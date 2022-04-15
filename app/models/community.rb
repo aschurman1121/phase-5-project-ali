@@ -1,6 +1,6 @@
 class Community < ApplicationRecord
-    belongs_to :neighbors
-    belongs_to :events
+    belongs_to :neighbor
+    belongs_to :event
 
     
 end

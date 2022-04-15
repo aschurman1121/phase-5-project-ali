@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :neighbors, only: [:create, :show]
+  resources :neighbors, only: [:create, :show, :index]
   resources :events, only: [:index, :create, :update]
   resources :communities
 
@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   # get '/', to: 'neighbors#show'
   get '/events', to: "events#index"
   
+  
+
+
   delete '/logout', to: "sessions#destroy" #fetch to this path (method DELETE) - path to login on front end
   
   
