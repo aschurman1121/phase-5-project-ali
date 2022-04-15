@@ -1,5 +1,5 @@
 class NeighborsController < ApplicationController
-    # skip_before_action :authorized_neighbor, only: :create
+    skip_before_action :authorized_neighbor, only: :create
 
 
 def index
@@ -20,13 +20,9 @@ end
 
 
 def show
-    # neighbor = Neighbor.find_by(username: params[:username])
     neighbor = Neighbor.find_by(id: session[:current_neighbor])
     if neighbor
         render json: neighbor
-    # neighbor = Neighbor.find(session[:current_neighbor])
-    # if current_neighbor
-    #     render json: current_neighbor, status: :ok
     else
         render json: { error: "Not authorized, or not the current user"}, status: :unauthorized
     end
@@ -36,7 +32,7 @@ private
 
 def neighbor_params
     # params.require(:username).permit(:password, :email, :age ,:name)
-    params.permit(:username, :password, :email, :age ,:name)
+    params.permit(:username, :password, :email, :age ,:name, :event_id, :neighbors, :event)
 end
 
 

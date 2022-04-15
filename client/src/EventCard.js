@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Card from 'react-bootstrap/Card'
 
 
-function EventCard({ eventTitle, date, purpose, supplies, location, startTime, endTime }) {
+function EventCard({ event_title, date, purpose, supplies, location, start_time, end_time }) {
 
   
   // const [events, setEvents] = useState([])
@@ -33,7 +33,7 @@ function EventCard({ eventTitle, date, purpose, supplies, location, startTime, e
   return (
     <div className='event_card'>
     
-      Event title: {eventTitle}
+      Event title: {event_title}
       <br></br>
       Date: {date}
       <br></br>
@@ -43,9 +43,9 @@ function EventCard({ eventTitle, date, purpose, supplies, location, startTime, e
       <br></br>
       Location: {location}
       <br></br>
-      Start Time: {startTime}
+      Start Time: {start_time}
       <br></br>
-      End Time: {endTime}
+      End Time: {end_time}
  
     </div>
   )

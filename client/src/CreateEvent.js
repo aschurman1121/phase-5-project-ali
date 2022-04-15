@@ -57,7 +57,7 @@ function CreateEvent( { newEvent, setNewEvent }) {
                 <Form.Label>Event Title:</Form.Label>
                 <Form.Control
                 type="text"
-                name="eventTitle"
+                name="event_title"
                 placeholder='Add event title here'
                 value={newEvent.eventTitle}
                 onChange={handleNewEventChange}
@@ -106,7 +106,7 @@ function CreateEvent( { newEvent, setNewEvent }) {
                 <Form.Label>Start Time:</Form.Label>
                 <Form.Control
                 type='time'
-                name="startTime"
+                name="start_time"
                 value={newEvent.startTime}
                 onChange={handleNewEventChange}
                 />
@@ -115,7 +115,7 @@ function CreateEvent( { newEvent, setNewEvent }) {
                 <Form.Label>End Time:</Form.Label>
                 <Form.Control
                 type='time'
-                name="endTime"
+                name="end_time"
                 value={newEvent.endTime}
                 onChange={handleNewEventChange}
                 />

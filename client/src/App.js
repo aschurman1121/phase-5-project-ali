@@ -56,18 +56,20 @@ useEffect(() => {
 
 
 
-  return (
-   <div>
+return (
+  <div>
      {/* <Routes> */}
      {/* {neighbor ? <Login/> : null} */}
      {/* </Routes> */}
      <NavBar/>
        <Routes>
+     
+        <Route path='/signup' element={<SignUp username={username} password={password} setUsername={setUsername} setPassword= {setPassword}/>} />
 
         <Route exact path='/homepage' element={<Homepage events = {events} setEvents={setEvents} newEvent={newEvent} setNewEvent={setNewEvent} />} />
                
       
-        <Route exact path='/' element={<Login username={username} password={password} setUsername={setUsername} setPassword={setPassword} onLogin={setNeighbor}/>} />
+        <Route exact path='/' element={<Login username={username} password={password} setUsername={setUsername} setPassword={setPassword} onLogin={setNeighbor} isAuthenticated = {isAuthenticated}/>} />
         
       
         <Route path='/logout' element={<Login username={username} password={password} setUsername={setUsername} setPassword={setPassword} onLogin={setNeighbor}/>} />
@@ -78,9 +80,7 @@ useEffect(() => {
       
         <Route path='/:id/edit' element={<EventPage />}/>
         
-
-        <Route path='/signup' element={<SignUp username={username} password={password} setUsername={setUsername} setPassword={setPassword}/>} />
-        </Routes>
+             </Routes>
  
    </div>
   );

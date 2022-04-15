@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 
 
-function Login({ onLogin, username, password, setUsername, setPassword }) {
+function Login({ onLogin, username, password, setUsername, setPassword, isAuthenticated}) {
 
   let navigate = useNavigate();
 
@@ -27,9 +27,14 @@ function Login({ onLogin, username, password, setUsername, setPassword }) {
         onLogin(user)
         navigate('/homepage')
 
-        })
+        })}
       // .then(() => navigate('/homepage'))
-    }
+    //     if (isAuthenticated){
+    //       .then(navigate('/homepage'))
+    //     } else {
+          // .then(navigate('/login'))
+    // }
+    // } 
       //if(loggged in)
       // homepage
       //else ----> notes from vineet
