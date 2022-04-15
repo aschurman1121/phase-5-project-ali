@@ -12,6 +12,8 @@ function EventCard({ eventTitle, date, purpose, supplies, location, startTime, e
   //     .then(r => r.json())
   //     .then(data => setEvents(data))
   // }, [])
+
+  //event's ( i.e. {allEvents}) do not render when a user signs up, need to create an access point between events & neighbors on the front end. Backend macros in place. 
   
   // const allEvents = events.map( e => {
   // return (

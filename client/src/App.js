@@ -65,25 +65,20 @@ useEffect(() => {
        <Routes>
 
         <Route exact path='/homepage' element={<Homepage events = {events} setEvents={setEvents} newEvent={newEvent} setNewEvent={setNewEvent} />} />
-       </Routes>
-         
-       <Routes>
+               
+      
         <Route exact path='/' element={<Login username={username} password={password} setUsername={setUsername} setPassword={setPassword} onLogin={setNeighbor}/>} />
-        </Routes>
-
-        <Routes>
+        
+      
         <Route path='/logout' element={<Login username={username} password={password} setUsername={setUsername} setPassword={setPassword} onLogin={setNeighbor}/>} />
-        </Routes>
-
-        <Routes>
+        
+      
         <Route path='/newEventForm' element={<CreateEvent newEvent={newEvent} setNewEvent={setNewEvent}/>}/>
-        </Routes>
-
-        <Routes>
+        
+      
         <Route path='/:id/edit' element={<EventPage />}/>
-        </Routes>
+        
 
-        <Routes>
         <Route path='/signup' element={<SignUp username={username} password={password} setUsername={setUsername} setPassword={setPassword}/>} />
         </Routes>
  

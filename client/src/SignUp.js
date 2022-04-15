@@ -49,10 +49,7 @@ function SignUp({ onLogin, username, password, setUsername, setPassword }) {
 
 
 
-    //     .then(r => r.json())
-    //     .then(onLogin)
-    //     .then(() => navigate('/homepage'))
-    // })}
+
 
   return (
     <>

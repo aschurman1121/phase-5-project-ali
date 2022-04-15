@@ -23,7 +23,7 @@ function CreateEvent( { newEvent, setNewEvent }) {
 
 //     })
 
-              // showing the data upon refresh, erring out when submit is pressed
+// showing the data upon refresh, erring out when submit is pressed
     function handleEventSubmit(e){
         e.preventDefault();
         fetch('/events/create', {

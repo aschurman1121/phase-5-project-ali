@@ -9,12 +9,7 @@ function NavBar({ onLogout }) {
         fetch('/logout', {
             method: 'DELETE',
         }).then(()=> onLogout);
-            // move state from app.js to use these
-        // }).then(()=> {
-        //   setIsAuthenticated(false)
-        //   setNeighbor(null)
-        // });
-        // console.log('clicked')
+  
     }
 
 
