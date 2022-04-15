@@ -5,12 +5,22 @@ import EventCard from './EventCard'
 import NavBar from './NavBar';
 import Button from 'react-bootstrap/Button'
 import Calendar from './Calendar';
+import CreateEvent from './CreateEvent';
 
 
-function Homepage({ events, setEvents }) {
+function Homepage({ events, setEvents, newEvent, setNewEvent }) {
 
-
-
+    // const [newEvent, setNewEvent] = useState({
+    //     event_title: '',
+    //     date:'',
+    //     purpose: '',
+    //     supplies: '',
+    //     location: '',
+    //     start_time: '',
+    //     end_time: '',
+    //     community: ''
+ 
+    //  })
 
     // const [events, setEvents] = useState([])//create event obj to post
 
@@ -43,7 +53,6 @@ const allEvents = events.map( e => {
 // ---would I do this on the front end?
 
 
-    // linked to the '/' & the event controller and the neighbor controller
   return (
       <>
       <div id='navbar_home'>
@@ -53,6 +62,8 @@ const allEvents = events.map( e => {
         <div className='event_container'>
             {allEvents}
             <Calendar />
+        
+            <CreateEvent newEvent={newEvent} setNewEvent={setNewEvent} />
             <a className='link'>
         <button> 
             <Link to='/newEventForm' style={{ textDecoration: 'none' }}> 

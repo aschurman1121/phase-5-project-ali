@@ -39,7 +39,7 @@ function SignUp({ onLogin, username, password, setUsername, setPassword }) {
 
         .then(r => r.json())
         .then(onLogin)
-        .then(() => navigate('/'))
+        .then(() => navigate('/homepage'))
     })}
 
   return (
@@ -53,11 +53,11 @@ function SignUp({ onLogin, username, password, setUsername, setPassword }) {
     <div className="title_block">
         Community Corner
       </div>
-      <div className='login_sign_up'>
+      {/* <div className='login_sign_up'> */}
     <h2>SignUp</h2>
             <div id='sign_up'>
                 <Form onSubmit={handleSignUpSubmit}>
-             <Form.Group>
+            {/*  <Form.Group>
              <Form.Label>Neighbor Name:</Form.Label>
             <Form.Control
                 type='text'
@@ -65,7 +65,7 @@ function SignUp({ onLogin, username, password, setUsername, setPassword }) {
                 // value={nameKey}
                 // onChange={(e) => setNameKey(e.target.value)}
                 />
-            </Form.Group>
+            </Form.Group> */}
 
             <Form.Group>
                 <Form.Label>Username:</Form.Label>
@@ -74,7 +74,7 @@ function SignUp({ onLogin, username, password, setUsername, setPassword }) {
                 id="username" 
                 value={username} 
                 // value={neighbor} 
-                // onChange={(e) => setUsername(e.target.value)}
+                onChange={(e) => setUsername(e.target.value)}
                 />
                
                    </Form.Group>
@@ -86,11 +86,11 @@ function SignUp({ onLogin, username, password, setUsername, setPassword }) {
                 type="text"
                 id="password"
                 // value={password}
-                // onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
                 />
             </Form.Group>
 
-            <Form.Group>
+            {/* <Form.Group>
                 <Form.Label>Email:</Form.Label>
                 <Form.Control
                 type='text'
@@ -108,19 +108,19 @@ function SignUp({ onLogin, username, password, setUsername, setPassword }) {
                 id='age'
                 // value={age}
                 // onChange={(e) => setAge(e.target.value)}
-                />
+                /> */}
             {/* <Form.Label> Community: </Form.Label> 
             <Form.Control
                 type="text"
                 placeholder='this will be a drop down selection'
             ></Form.Control> */}
-            </Form.Group>
+            {/* </Form.Group> */}
            
         <Button type="submit">Submit</Button>
      
         </Form>
         </div>
-        </div>
+
         </Container>
 
     </div>

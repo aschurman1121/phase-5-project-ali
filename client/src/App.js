@@ -18,6 +18,17 @@ const [isAuthenticated, setIsAuthenticated] = useState(false)
 const [username, setUsername] = useState("");
 const [password, setPassword] = useState("");
 const [events, setEvents] = useState([]);
+const [newEvent, setNewEvent] = useState({
+  event_title: '',
+  date:'',
+  purpose: '',
+  supplies: '',
+  location: '',
+  start_time: '',
+  end_time: '',
+  community: ''
+
+})
 
 // //login --> setNeighbor becomes onLogin
 // useEffect(() => {
@@ -69,7 +80,7 @@ useEffect(() => {
      {/* {neighbor ? <Login/> : null} */}
      {/* </Routes> */}
        <Routes>
-        <Route exact path='/homepage' element={<Homepage events = {events} setEvents={setEvents} />} />
+        <Route exact path='/homepage' element={<Homepage events = {events} setEvents={setEvents} newEvent={newEvent} setNewEvent={setNewEvent} />} />
        </Routes>
          
        <Routes>
@@ -81,7 +92,7 @@ useEffect(() => {
         </Routes>
 
         <Routes>
-        <Route path='/newEventForm' element={<CreateEvent />}/>
+        <Route path='/newEventForm' element={<CreateEvent newEvent={newEvent} setNewEvent={setNewEvent}/>}/>
         </Routes>
 
         <Routes>
