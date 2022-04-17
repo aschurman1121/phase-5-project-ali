@@ -60,7 +60,7 @@ function Login({ onLogin, username, password, setUsername, setPassword, isAuthen
              <br></br>
              <Form.Group>
                <Form.Control
-                  type='text'
+                  type='password'
                   value={password}
                   placeholder='Password'
                   onChange={(e) => setPassword(e.target.value)}

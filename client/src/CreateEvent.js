@@ -23,11 +23,8 @@ function CreateEvent( { newEvent, setNewEvent, events, setEvents }) {
             body: JSON.stringify(newEvent)
         })
         .then(r => r.json()) 
-       //  .then((data) => console.log(data))
         .then(data => setEvents((events) => [...events, data]))
-       //  .then(data => setNewEvent(data))
         .then(navigate('/homepage'))
-       //  .then(navigate('/homepage').push)
     }
 
 
@@ -36,13 +33,12 @@ function CreateEvent( { newEvent, setNewEvent, events, setEvents }) {
            console.log(e.target)
     }
 
-
-
+/// move the onChange to  a higher level  - not DRY  --loook at the default states of form, how it reads it
 
   return (
     <div>Create Event
         <Form>
-         <Form.Group>
+         <Form.Group>  
                 <Form.Label>Event Title:</Form.Label>
                 <Form.Control
                 type="text"

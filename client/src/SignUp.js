@@ -28,6 +28,7 @@ function SignUp({ onLogin, username, password, setUsername, setPassword }) {
 
     function handleSignUpSubmit(e) {
         e.preventDefault()
+        console.log(e)
         fetch("/signup", {
             method: "POST",
             headers: {
@@ -37,7 +38,7 @@ function SignUp({ onLogin, username, password, setUsername, setPassword }) {
             username,
             password,
         }),
-        }).then((r => {
+        }).then((r => { //catch?
             if (r.ok) {
                 r.json().then((user) => console.log(user));
                 navigate('/homepage')
@@ -59,38 +60,34 @@ function SignUp({ onLogin, username, password, setUsername, setPassword }) {
     <div className="title_block">
         Community Corner
       </div>
-      {/* <div className='login_sign_up'> */}
-    <h2>SignUp</h2>
+        <div className='login_sign_up'>
+            <h2>SignUp</h2>
             <div id='sign_up'>
                 <Form onSubmit={handleSignUpSubmit}>
+                    <Form.Group>
+                        <Form.Label>Username:</Form.Label>
+                    <Form.Control 
+                        type="text" 
+                        id="username" 
+                        value={username}  
+                        onChange={(e) => setUsername(e.target.value)}
+                        />
+                    </Form.Group>
+                    <Form.Group>
+                    <Form.Label> Password: </Form.Label>
+                    <Form.Control 
+                        type="text"
+                        id="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </Form.Group>
+                    <Button type="submit" onClick={handleSignUpSubmit} >Submit</Button>
 
-            <Form.Group>
-                <Form.Label>Username:</Form.Label>
-            <Form.Control 
-                type="text" 
-                id="username" 
-                value={username}  
-                onChange={(e) => setUsername(e.target.value)}
-                />
-            </Form.Group>
-            <Form.Group>
-            <Form.Label> Password: </Form.Label>
-            <Form.Control 
-                type="text"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                />
-            </Form.Group>
-              
-           
-        <Button type="submit" onClick={handleSignUpSubmit} >Submit</Button>
-     
-        </Form>
+                </Form>
+            </div>
         </div>
-
-        </Container>
-
+    </Container>
     </div>
     </>
   )
@@ -98,38 +95,3 @@ function SignUp({ onLogin, username, password, setUsername, setPassword }) {
 
 export default SignUp
 
-//   {/*  <Form.Group>
-//                  <Form.Label>Neighbor Name:</Form.Label>
-//                 <Form.Control
-//                     type='text'
-//                     id='name'
-//                     // value={nameKey}
-//                     // onChange={(e) => setNameKey(e.target.value)}
-//                     />
-//                 </Form.Group> */}
-
-//             {/* <Form.Group>
-//                 <Form.Label>Email:</Form.Label>
-//                 <Form.Control
-//                 type='text'
-//                 id="email"
-//                 // value={email}
-//                 // onChange={(e)=> setEmail(e.target.value)}
-//                 />
-
-//             </Form.Group>
-
-//             <Form.Group>
-//             <Form.Label> Age: </Form.Label>
-//             <Form.Control
-//                 type="integer"
-//                 id='age'
-//                 // value={age}
-//                 // onChange={(e) => setAge(e.target.value)}
-//                 /> */}
-//             {/* <Form.Label> Community: </Form.Label> 
-//             <Form.Control
-//                 type="text"
-//                 placeholder='this will be a drop down selection'
-//             ></Form.Control> */}
-//             {/* </Form.Group> */}

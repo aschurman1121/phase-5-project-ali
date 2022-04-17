@@ -20,12 +20,12 @@
 puts 'seeding neighbors...'
 
 
-N1 = Neighbor.create(name: "Rose", username: "Rose1", age: 37, image: "" , email: "rose@email.com", password:"yyyy"  )
-N2 = Neighbor.create(name: "Penny", username: "Penny1", age: 29, image: "", email: "penny@email.com", password:"yyyy"  )
-N3 = Neighbor.create(name: "Adam",username: "Adam1", age: 43, image: "", email: "adam@email.com", password:"yyyy" )
-N4 = Neighbor.create(name: "Mickey", username: "Mickey1", age: 33, image: "", email: "mickey@email.com", password:"yyyy" )
-N5 = Neighbor.create(name: "Wendy", username: "Wendy1", age: 52, image: "", email: "wendy@email.com", password:"yyyy")
-N6 = Neighbor.create(name: "Tony", username: "Tony1", age: 27, image: "", email: "tony@email.com", password:"yyyy")
+N1 = Neighbor.create(name: "Rose", username: "Rose1", age: 37, image: "" , email: "alexandraschurman@gmail.com", password:"yyyy"  )
+N2 = Neighbor.create(name: "Penny", username: "Penny1", age: 29, image: "", email: "alexandraschurman@gmail.com", password:"yyyy"  )
+N3 = Neighbor.create(name: "Adam",username: "Adam1", age: 43, image: "", email: "alexandraschurman@gmail.com", password:"yyyy" )
+N4 = Neighbor.create(name: "Mickey", username: "Mickey1", age: 33, image: "", email: "alexandraschurman@gmail.com", password:"yyyy" )
+N5 = Neighbor.create(name: "Wendy", username: "Wendy1", age: 52, image: "", email: "alexandraschurman@gmail.com", password:"yyyy")
+N6 = Neighbor.create(name: "Tony", username: "Tony1", age: 27, image: "", email: "alexandraschurman@gmail.com", password:"yyyy")
 
 
 

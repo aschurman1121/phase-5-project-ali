@@ -7,6 +7,7 @@ import SignUp from './SignUp';
 import Homepage from './Homepage';
 import CreateEvent from './CreateEvent';
 import EventPage from './EventPage';
+import Email from './Email';
 
 
 
@@ -30,16 +31,19 @@ const [newEvent, setNewEvent] = useState({
 })
 
 
+
+//running before every --- move to login?
 console.log(neighbor)
-//authentication
+// authentication
 useEffect(() => {
     fetch('/authorized_neighbor')
     .then (r => {
-      if(r.ok) {
+      if(r.ok) {// add an error (.catch) -- try/catch 
         r.json()
         .then((neighbor) => {
           setIsAuthenticated(true);
           setNeighbor(neighbor);
+          // .catcch
         })
         .then(() => {
           // fetch('/me')
@@ -53,36 +57,50 @@ useEffect(() => {
       }
     })
 },[]);
-
+///I think I need to add an else here between 43 & 44 to catch the path before it goes to events... where do I want it to go? 
 
 
 return (
   <div>
-     {/* <Routes> */}
-     {/* {neighbor ? <Login/> : null} */}
-     {/* </Routes> */}
      <NavBar/>
        <Routes>
-     
-        <Route path='/signup' element={<SignUp username={username} password={password} setUsername={setUsername} setPassword= {setPassword}/>} />
-
-        <Route path='/newEventForm' element={<CreateEvent newEvent={newEvent} setNewEvent={setNewEvent} events = {events} setEvents={setEvents} />}/>
-
-        <Route exact path='/homepage' element={<Homepage events = {events} setEvents={setEvents} newEvent={newEvent} setNewEvent={setNewEvent} />} />
-               
-      
-        <Route exact path='/' element={<Login username={username} password={password} setUsername={setUsername} setPassword={setPassword} onLogin={setNeighbor} isAuthenticated = {isAuthenticated}/>} />
+        <Route path='/signup' 
+        element={<SignUp username={username} 
+                         password={password} 
+                         setUsername={setUsername} 
+                         setPassword={setPassword}/>} />
+        <Route path='/newEventForm' 
+        element={<CreateEvent newEvent={newEvent} 
+                              setNewEvent={setNewEvent} 
+                              events = {events} 
+                              setEvents={setEvents} />}/>
+        <Route exact path='/homepage' 
+        element={<Homepage events = {events} 
+                           setEvents={setEvents} 
+                           newEvent={newEvent} 
+                           setNewEvent={setNewEvent} />} />
+        <Route exact path='/' 
+        element={<Login username={username} 
+                        password={password} 
+                        setUsername={setUsername} 
+                        setPassword={setPassword} 
+                        onLogin={setNeighbor} 
+                        isAuthenticated = {isAuthenticated}/>} />
         
       
-        <Route path='/logout' element={<Login username={username} password={password} setUsername={setUsername} setPassword={setPassword} onLogin={setNeighbor}/>} />
+        <Route path='/logout' 
+        element={<Login username={username} 
+                        password={password} 
+                        setUsername={setUsername} 
+                        setPassword={setPassword} 
+                        onLogin={setNeighbor}/>} />
         
-      
+        <Route path='/email' element={<Email />} />
         
       
         <Route path='/:id/edit' element={<EventPage />}/>
         
-             </Routes>
- 
+      </Routes>
    </div>
   );
   };

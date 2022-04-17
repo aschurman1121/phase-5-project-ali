@@ -12,7 +12,7 @@ function NavBar({ onLogout }) {
   
     }
 
-
+//use navigate
 
 
   return (

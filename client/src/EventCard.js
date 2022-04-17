@@ -1,41 +1,32 @@
 import React, { useState, useEffect } from 'react'
 import Card from 'react-bootstrap/Card'
+import { useNavigate } from 'react-router-dom'
 
 
 function EventCard({ event_title, date, purpose, supplies, location, start_time, end_time }) {
 
-  
-  // const [events, setEvents] = useState([])
-  
-  // useEffect(() => {
-  //     fetch('/event')
-  //     .then(r => r.json())
-  //     .then(data => setEvents(data))
-  // }, [])
+  let navigate = useNavigate();
+
+
 
   //event's ( i.e. {allEvents}) do not render when a user signs up, need to create an access point between events & neighbors on the front end. Backend macros in place. 
-  
-  // const allEvents = events.map( e => {
-  // return (
-  //     <EventPage 
-  //         eventTitle = {e.event_title}
-  //         key = {e.id}
-  //         date = {e.date}
-  //         purpose = {e.purpose}
-  //         supplies = {e.supplies}
-  //         location = {e.location}
-  //         startTime = {e.start_time}
-  //         endTimee = {e.end_time}
-  //         community = {e.community_id}
-  //     />
-  // )
-  // })
+ 
+        function handleEmailClick(e) {
+          console.log("click!")
+          navigate('/email')
+        }
+
+// look into dstructuring the render -- react specific-- Loops over one value dynamically 
+
   return (
     <div className='event_card'>
     
       Event title: {event_title}
       <br></br>
       Date: {date}
+
+      <br></br>
+      <button onClick={handleEmailClick}> Email to your friends!  </button>
       <br></br>
       Purpose: {purpose}
       <br></br>
