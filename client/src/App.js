@@ -32,32 +32,32 @@ const [newEvent, setNewEvent] = useState({
 
 
 
-//running before every --- move to login?
-console.log(neighbor)
-// authentication
-useEffect(() => {
-    fetch('/authorized_neighbor')
-    .then (r => {
-      if(r.ok) {// add an error (.catch) -- try/catch 
-        r.json()
-        .then((neighbor) => {
-          setIsAuthenticated(true);
-          setNeighbor(neighbor);
-          // .catcch
-        })
-        .then(() => {
-          // fetch('/me')
-          fetch('/events')
-          .then((r) => r.json())
-          .then(events => {
-            console.log(events)
-            setEvents(events)
-          })
-        })
-      }
-    })
-},[]);
-///I think I need to add an else here between 43 & 44 to catch the path before it goes to events... where do I want it to go? 
+// //running before every --- move to login?
+// console.log(neighbor)
+// // authentication
+// useEffect(() => {
+//     fetch('/authorized_neighbor')
+//     .then (r => {
+//       if(r.ok) {// add an error (.catch) -- try/catch 
+//         r.json()
+//         .then((neighbor) => {
+//           setIsAuthenticated(true);
+//           setNeighbor(neighbor);
+//           // .catcch
+//         })
+//         .then(() => {
+//           // fetch('/me')
+//           fetch('/events')
+//           .then((r) => r.json())
+//           .then(events => {
+//             console.log(events)
+//             setEvents(events)
+//           })
+//         })
+//       }
+//     })
+// },[]);
+// ///I think I need to add an else here between 43 & 44 to catch the path before it goes to events... where do I want it to go? 
 
 
 return (
@@ -82,18 +82,24 @@ return (
         <Route exact path='/' 
         element={<Login username={username} 
                         password={password} 
+                        neighbor={neighbor}
                         setUsername={setUsername} 
                         setPassword={setPassword} 
                         onLogin={setNeighbor} 
-                        isAuthenticated = {isAuthenticated}/>} />
+                        setIsAuthenticated = {setIsAuthenticated}
+                        setEvents={setEvents}
+                        />} />
         
       
         <Route path='/logout' 
         element={<Login username={username} 
                         password={password} 
+                        neighbor={neighbor}
                         setUsername={setUsername} 
                         setPassword={setPassword} 
-                        onLogin={setNeighbor}/>} />
+                        onLogin={setNeighbor}
+                        setIsAuthenticated = {setIsAuthenticated}
+                        setEvents={setEvents}/>} />
         
         <Route path='/email' element={<Email />} />
         

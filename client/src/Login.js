@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import NavBar from './NavBar';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 
 
-function Login({ onLogin, username, password, setUsername, setPassword, isAuthenticated}) {
+function Login({ onLogin, username, password, setUsername, setPassword, setIsAuthenticated, neighbor, setEvents}) {
 
   let navigate = useNavigate();
 
@@ -19,15 +19,14 @@ function Login({ onLogin, username, password, setUsername, setPassword, isAuthen
         headers: {
           "Content-Type": "application/json",
          },
-        body: JSON.stringify({username: username, password: password}),
+        body: JSON.stringify({username: username, 
+                              password: password}),
       })
-      .then(r => r.json())
-      .then(user => {
-        // console.log(user)
-        onLogin(user)
-        navigate('/homepage')
-
-        })}
+        .then(r => r.json())
+        .then(user => {
+          onLogin(user)
+          navigate('/homepage')
+      })}
       // .then(() => navigate('/homepage'))
     //     if (isAuthenticated){
     //       .then(navigate('/homepage'))
@@ -38,6 +37,33 @@ function Login({ onLogin, username, password, setUsername, setPassword, isAuthen
       //if(loggged in)
       // homepage
       //else ----> notes from vineet
+
+
+      //running before every --- move to login?
+console.log(neighbor)
+// authentication
+useEffect(() => {
+    fetch('/authorized_neighbor')
+    .then (r => {
+      if(r.ok) {// add an error (.catch) -- try/catch 
+        r.json()
+        .then((neighbor) => {
+          setIsAuthenticated(true);
+          onLogin(neighbor);
+          // .catcch
+        })
+        .then(() => {
+          // fetch('/me')
+          fetch('/events')
+          .then((r) => r.json())
+          .then(events => {
+            console.log(events)
+            setEvents(events)
+          })
+        })
+      }
+    })
+},[]);
 
   return (
 
