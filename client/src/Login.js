@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import NavBar from './NavBar';
 import { Link, useNavigate } from 'react-router-dom';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
+
 
 
 function Login({ onLogin, username, password, setUsername, setPassword, setIsAuthenticated, setEvents, email, setEmail, neighbor}) {
@@ -19,11 +19,7 @@ function Login({ onLogin, username, password, setUsername, setPassword, setIsAut
         headers: {
           "Content-Type": "application/json",
          },
-        body: JSON.stringify({ neighbor
-          // username: username, 
-          //                     password: password,
-          //                     email: email
-                            }),
+        body: JSON.stringify({ neighbor}),
       })
         .then(r => r.json())
         .then(user => {
