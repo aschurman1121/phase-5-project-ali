@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import NavBar from './NavBar';
+
 import { Link, useNavigate } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -26,7 +26,8 @@ function Login({ onLogin, username, password, setUsername, setPassword, setIsAut
         .then(user => {
           onLogin(user)
           navigate('/homepage')
-      })}
+      })
+      e.target.reset()}
       // .then(() => navigate('/homepage'))
     //     if (isAuthenticated){
     //       .then(navigate('/homepage'))

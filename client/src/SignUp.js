@@ -1,26 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/esm/Container';
-import NavBar from './NavBar';
+
 import { useNavigate } from 'react-router-dom';
 
 
 
 
-function SignUp({ onLogin, username, password, setUsername, setPassword }) {
+function SignUp({ username, password, setUsername, setPassword }) {
 
 
-    // const [newNeighbor, setNewNeighbor] = useState({
-    //     username: '',
-    //     name: '',
-    //     age: '',
-    //     // community: '',
-    //     image: '',
-    //     email: '',
-    //     password:''
-    // })
+
 
     let navigate = useNavigate();
 
@@ -46,7 +38,8 @@ function SignUp({ onLogin, username, password, setUsername, setPassword }) {
             } else {
                 r.json().then((err) => console.log(err));
             } 
-        }))}
+        }))
+        e.target.reset()}
 
 
 

@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom';
-import EventPage from './EventPage'
+import React, { useEffect } from 'react'
 import EventCard from './EventCard'
 import CreateEvent from './CreateEvent';
+import Email from './Email';
 
 
 function Homepage({ events, setEvents, newEvent, setNewEvent }) {
@@ -55,6 +54,7 @@ const allEvents = events.map( e => {
                         </button>
             </a>
         </div>
+        <Email /> 
     </div>
      </>
   )
