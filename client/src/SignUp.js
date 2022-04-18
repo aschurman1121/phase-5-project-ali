@@ -2,29 +2,15 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import Container from 'react-bootstrap/esm/Container';
-import NavBar from './NavBar';
+import Container from 'react-bootstrap/esm/Container'
 import { useNavigate } from 'react-router-dom';
 
 
 
 
-function SignUp({ onLogin, username, password, setUsername, setPassword }) {
-
-
-    // const [newNeighbor, setNewNeighbor] = useState({
-    //     username: '',
-    //     name: '',
-    //     age: '',
-    //     // community: '',
-    //     image: '',
-    //     email: '',
-    //     password:''
-    // })
+function SignUp({ username, password, setUsername, setPassword, email, setEmail, neighbor, setNeighbor }) {
 
     let navigate = useNavigate();
-
-
 
     function handleSignUpSubmit(e) {
         e.preventDefault()
@@ -34,9 +20,10 @@ function SignUp({ onLogin, username, password, setUsername, setPassword }) {
             headers: {
                 "Content-Type":"application/json",
             },
-        body: JSON.stringify({
-            username,
-            password,
+        body: JSON.stringify({ neighbor
+            // username,
+            // password,
+            // email,
         }),
         }).then((r => { //catch?
             if (r.ok) {
@@ -47,9 +34,6 @@ function SignUp({ onLogin, username, password, setUsername, setPassword }) {
                 r.json().then((err) => console.log(err));
             } 
         }))}
-
-
-
 
 
   return (
@@ -69,19 +53,29 @@ function SignUp({ onLogin, username, password, setUsername, setPassword }) {
                     <Form.Control 
                         type="text" 
                         id="username" 
-                        value={username}  
-                        onChange={(e) => setUsername(e.target.value)}
+                        value={neighbor.username}  
+                        onChange={(e) => setNeighbor(e.target.value)}
                         />
                     </Form.Group>
                     <Form.Group>
-                    <Form.Label> Password: </Form.Label>
+                        <Form.Label> Password: </Form.Label>
                     <Form.Control 
-                        type="text"
+                        type="password"
                         id="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        value={neighbor.password}
+                        onChange={(e) => setNeighbor(e.target.value)}
                         />
                     </Form.Group>
+                    <Form.Group>
+                        <Form.Label> Email: </Form.Label>
+                    <Form.Control 
+                        type="text"
+                        id="email"
+                        value={neighbor.email}
+                        onChange={(e) => setNeighbor(e.target.value)}
+                        />
+                    </Form.Group>
+
                     <Button type="submit" onClick={handleSignUpSubmit} >Submit</Button>
 
                 </Form>

@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 
 
-function Login({ onLogin, username, password, setUsername, setPassword, setIsAuthenticated, neighbor, setEvents}) {
+function Login({ onLogin, username, password, setUsername, setPassword, setIsAuthenticated, setEvents, email, setEmail, neighbor}) {
 
   let navigate = useNavigate();
 
@@ -19,8 +19,11 @@ function Login({ onLogin, username, password, setUsername, setPassword, setIsAut
         headers: {
           "Content-Type": "application/json",
          },
-        body: JSON.stringify({username: username, 
-                              password: password}),
+        body: JSON.stringify({ neighbor
+          // username: username, 
+          //                     password: password,
+          //                     email: email
+                            }),
       })
         .then(r => r.json())
         .then(user => {
@@ -39,8 +42,7 @@ function Login({ onLogin, username, password, setUsername, setPassword, setIsAut
       //else ----> notes from vineet
 
 
-      //running before every --- move to login?
-console.log(neighbor)
+
 // authentication
 useEffect(() => {
     fetch('/authorized_neighbor')
@@ -50,10 +52,9 @@ useEffect(() => {
         .then((neighbor) => {
           setIsAuthenticated(true);
           onLogin(neighbor);
-          // .catcch
+          // .catch
         })
         .then(() => {
-          // fetch('/me')
           fetch('/events')
           .then((r) => r.json())
           .then(events => {
@@ -66,45 +67,42 @@ useEffect(() => {
 },[]);
 
   return (
-
- <div className="user_start">
+<div className="user_start">
     <Container>
-      <div className="title_block">
-        Community Corner
-      </div>
-      <div className='login_sign_up'>
-            Login
-            <div className='username_password_form_inputs'>
-        <Form onSubmit={handleLoginSubmit}>
-          <Form.Group>
-             <Form.Control
-                 type="text"
-                 value={username}
-                 placeholder = "Username"
-                 onChange={(e) => setUsername(e.target.value)}/>
-             </Form.Group>
-             <br></br>
-             <Form.Group>
-               <Form.Control
-                  type='password'
-                  value={password}
-                  placeholder='Password'
-                  onChange={(e) => setPassword(e.target.value)}
-                  />
-          </Form.Group>
-            <br></br>
-            <Button type="submit" >Login</Button>
-   
-        </Form>
+          <div className="title_block">
+            Community Corner
           </div>
-          <br></br>
+  <div className='login_sign_up'>
+            Login
+          <div className='username_password_form_inputs'>
+              <Form onSubmit={handleLoginSubmit}>
+                  <Form.Group>
+                    <Form.Control
+                      type="text"
+                      value={username}
+                      placeholder = "Username"
+                      onChange={(e) => setUsername(e.target.value)}/>
+                  </Form.Group>
+                    <br></br>
+                  <Form.Group>
+                     <Form.Control
+                         type='password'
+                         value={password}
+                         placeholder='Password'
+                         onChange={(e) => setPassword(e.target.value)}
+                         />
+                    </Form.Group>
+                      <br></br>
+                  <Button type="submit">Login</Button>
+              </Form>
+          </div>
+              <br></br>
         <Link to='/signup'>
           <p id='sign_up_link'>Not a member? Sign up here!</p>
         </Link>
-            </div>
-
+      </div>
     </Container>
-    </div>
+</div>
 
 
   )

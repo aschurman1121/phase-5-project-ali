@@ -1,10 +1,9 @@
-import React, {useState} from 'react'
+import React from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import NavBar from './NavBar'
 import { useNavigate } from 'react-router-dom'
 
-function CreateEvent( { newEvent, setNewEvent, events, setEvents }) {
+function CreateEvent( { newEvent, setNewEvent, setEvents }) {
 
        let navigate = useNavigate();
 

@@ -13,51 +13,27 @@ import Email from './Email';
 
 function App() {
 
-const [neighbor, setNeighbor] = useState(null)
-const [isAuthenticated, setIsAuthenticated] = useState(false)
-const [username, setUsername] = useState("");
-const [password, setPassword] = useState("");
-const [events, setEvents] = useState([]);
-const [newEvent, setNewEvent] = useState({
-  event_title: '',
-  date:'',
-  purpose: '',
-  supplies: '',
-  location: '',
-  start_time: '',
-  end_time: '',
-  community: ''
-
-})
-
-
-
-// //running before every --- move to login?
-// console.log(neighbor)
-// // authentication
-// useEffect(() => {
-//     fetch('/authorized_neighbor')
-//     .then (r => {
-//       if(r.ok) {// add an error (.catch) -- try/catch 
-//         r.json()
-//         .then((neighbor) => {
-//           setIsAuthenticated(true);
-//           setNeighbor(neighbor);
-//           // .catcch
-//         })
-//         .then(() => {
-//           // fetch('/me')
-//           fetch('/events')
-//           .then((r) => r.json())
-//           .then(events => {
-//             console.log(events)
-//             setEvents(events)
-//           })
-//         })
-//       }
-//     })
-// },[]);
-// ///I think I need to add an else here between 43 & 44 to catch the path before it goes to events... where do I want it to go? 
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("")
+  const [events, setEvents] = useState([]);
+  const [newEvent, setNewEvent] = useState({
+    event_title: '',
+    date:'',
+    purpose: '',
+    supplies: '',
+    location: '',
+    start_time: '',
+    end_time: '',
+    community: ''
+    
+  })
+  const [neighbor, setNeighbor] = useState({
+    username: '',
+    password: '',
+    email: ''
+  })
 
 
 return (
@@ -65,41 +41,30 @@ return (
      <NavBar/>
        <Routes>
         <Route path='/signup' 
-        element={<SignUp username={username} 
-                         password={password} 
-                         setUsername={setUsername} 
-                         setPassword={setPassword}/>} />
-        <Route path='/newEventForm' 
-        element={<CreateEvent newEvent={newEvent} 
-                              setNewEvent={setNewEvent} 
-                              events = {events} 
-                              setEvents={setEvents} />}/>
+        element={<SignUp neighbor={neighbor}
+                         setNeighbor={setNeighbor}
+                         setEmail={setEmail}/>} />
         <Route exact path='/homepage' 
         element={<Homepage events = {events} 
                            setEvents={setEvents} 
                            newEvent={newEvent} 
                            setNewEvent={setNewEvent} />} />
         <Route exact path='/' 
-        element={<Login username={username} 
-                        password={password} 
-                        neighbor={neighbor}
-                        setUsername={setUsername} 
-                        setPassword={setPassword} 
-                        onLogin={setNeighbor} 
-                        setIsAuthenticated = {setIsAuthenticated}
-                        setEvents={setEvents}
-                        />} />
-        
-      
+            element={<Login neighbor={neighbor}
+                            email={email}
+                            onLogin={setNeighbor} 
+                            setIsAuthenticated = {setIsAuthenticated}
+                            setEvents={setEvents}
+                            />} />
         <Route path='/logout' 
-        element={<Login username={username} 
-                        password={password} 
-                        neighbor={neighbor}
-                        setUsername={setUsername} 
-                        setPassword={setPassword} 
-                        onLogin={setNeighbor}
-                        setIsAuthenticated = {setIsAuthenticated}
-                        setEvents={setEvents}/>} />
+            element={<Login neighbor={neighbor}
+                            onLogin={setNeighbor}
+                            setIsAuthenticated = {setIsAuthenticated}
+                            setEvents={setEvents}/>} />
+        <Route path='/newEventForm' 
+            element={<CreateEvent newEvent={newEvent} 
+                              setNewEvent={setNewEvent} 
+                              setEvents={setEvents} />}/>
         
         <Route path='/email' element={<Email />} />
         
@@ -109,5 +74,5 @@ return (
       </Routes>
    </div>
   );
-  };
+};
 export default App;
