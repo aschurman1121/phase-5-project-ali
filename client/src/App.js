@@ -52,13 +52,13 @@ return (
         <Route exact path='/' 
             element={<Login neighbor={neighbor}
                             email={email}
-                            onLogin={setNeighbor} 
+                            setNeighbor={setNeighbor} 
                             setIsAuthenticated = {setIsAuthenticated}
                             setEvents={setEvents}
                             />} />
         <Route path='/logout' 
             element={<Login neighbor={neighbor}
-                            onLogin={setNeighbor}
+                            setNeighbor={setNeighbor}
                             setIsAuthenticated = {setIsAuthenticated}
                             setEvents={setEvents}/>} />
         <Route path='/newEventForm' 

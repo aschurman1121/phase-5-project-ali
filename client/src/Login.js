@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import NavBar from './NavBar';
 import { Link, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form'
@@ -8,7 +7,7 @@ import Container from 'react-bootstrap/Container'
 
 
 
-function Login({ onLogin, username, password, setUsername, setPassword, setIsAuthenticated, setEvents, email, setEmail, neighbor}) {
+function Login({ username, password, setUsername, setPassword, setIsAuthenticated, setEvents, email, setEmail, neighbor, setNeighbor}) {
 
   let navigate = useNavigate();
 
@@ -23,7 +22,7 @@ function Login({ onLogin, username, password, setUsername, setPassword, setIsAut
       })
         .then(r => r.json())
         .then(user => {
-          onLogin(user)
+          setNeighbor(user)
           navigate('/homepage')
       })}
       // .then(() => navigate('/homepage'))
@@ -47,7 +46,7 @@ useEffect(() => {
         r.json()
         .then((neighbor) => {
           setIsAuthenticated(true);
-          onLogin(neighbor);
+          setNeighbor(neighbor);
           // .catch
         })
         .then(() => {
@@ -75,17 +74,17 @@ useEffect(() => {
                   <Form.Group>
                     <Form.Control
                       type="text"
-                      value={username}
+                      value={neighbor.username}
                       placeholder = "Username"
-                      onChange={(e) => setUsername(e.target.value)}/>
+                      onChange={(e) => setNeighbor(e.target.value)}/>
                   </Form.Group>
                     <br></br>
                   <Form.Group>
                      <Form.Control
                          type='password'
-                         value={password}
+                         value={neighbor.password}
                          placeholder='Password'
-                         onChange={(e) => setPassword(e.target.value)}
+                         onChange={(e) => setNeighbor(e.target.value)}
                          />
                     </Form.Group>
                       <br></br>
