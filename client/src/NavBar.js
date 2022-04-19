@@ -20,7 +20,7 @@ function NavBar({ onLogout }) {
     <header>
       <Link to='/logout'>
         <Button onClick={handleLogout}>logout</Button>
-        </Link>
+      </Link>
     </header>
     </div>
   )
