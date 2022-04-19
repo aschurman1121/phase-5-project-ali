@@ -20,9 +20,21 @@ function SignUp({ username, password, setUsername, setPassword, email, setEmail,
             headers: {
                 "Content-Type":"application/json",
             },
-        body: JSON.stringify({ neighbor }),
-        }).then( r => r.json ()  )
-            .then(data => console.log(data))}
+        body: JSON.stringify({
+            username, password, email
+         }),
+        })//.then( r => r.json ()  )
+        .then((r => { //catch?
+            if (r.ok) {
+                r.json().then(neighbor => setNeighbor(neighbor));
+                navigate('/homepage')
+    
+            } else {
+                r.json().then((err) => console.log(err));
+            } 
+        })
+        )}
+            // .then(data => console.log(data))}
         
         
     function handleSignUpChange (e) {
@@ -32,16 +44,6 @@ function SignUp({ username, password, setUsername, setPassword, email, setEmail,
     }
 
 
-        // .then((r => { //catch?
-        //     if (r.ok) {
-        //         r.json().then((user) => console.log(user));
-        //         navigate('/homepage')
-
-        //     } else {
-        //         r.json().then((err) => console.log(err));
-        //     } 
-        // })
-        // )}
 
 
   return (
@@ -55,7 +57,7 @@ function SignUp({ username, password, setUsername, setPassword, email, setEmail,
         <div className='login_sign_up'>
             <h2>SignUp</h2>
             <div id='sign_up'>
-                <Form onSubmit={handleSignUpSubmit}>
+                <Form >
                     <Form.Group>
                         <Form.Label>Username:</Form.Label>
                     <Form.Control 
@@ -63,7 +65,7 @@ function SignUp({ username, password, setUsername, setPassword, email, setEmail,
                         id="username" 
                         value={neighbor.username}  
                         // onChange={(e) => setNeighbor(e.target.value)}
-                        onChange={handleSignUpChange}
+                        // onChange={handleSignUpChange}
                         />
                     </Form.Group>
                     <Form.Group>
@@ -73,7 +75,7 @@ function SignUp({ username, password, setUsername, setPassword, email, setEmail,
                         id="password"
                         value={neighbor.password}
                         // onChange={(e) => setNeighbor(e.target.value)}
-                        onChange={handleSignUpChange}
+                        // onChange={handleSignUpChange}
                         />
                     </Form.Group>
                     <Form.Group>
@@ -83,7 +85,7 @@ function SignUp({ username, password, setUsername, setPassword, email, setEmail,
                         id="email"
                         value={neighbor.email}
                         // onChange={(e) => setNeighbor(e.target.value)}
-                        onChange={handleSignUpChange}
+                        // onChange={handleSignUpChange}
                         />
                     </Form.Group>
 

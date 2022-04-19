@@ -18,7 +18,7 @@ function Login({ username, password, setUsername, setPassword, setIsAuthenticate
         headers: {
           "Content-Type": "application/json",
          },
-        body: JSON.stringify({ neighbor}),
+        body: JSON.stringify({ username, password, email}),
       })
         .then(r => r.json())
         .then(user => {
