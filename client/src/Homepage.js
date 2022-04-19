@@ -11,7 +11,7 @@ function Homepage({ events, setEvents, newEvent, setNewEvent }) {
         fetch('/events')
         .then(r => r.json())
         .then(data => setEvents(data))
-    }, [])
+    }, [setEvents])
     
 
 const allEvents = events.map( e => {
@@ -44,7 +44,7 @@ const allEvents = events.map( e => {
 
         <div className='user_info'> 
             this is where the user will render
-            <a className='link'>
+            <span className='link'>
                 <CreateEvent events = {events} 
                              setEvents={setEvents} 
                              newEvent={newEvent} 
@@ -52,7 +52,7 @@ const allEvents = events.map( e => {
                         <button> 
                         Create New Event
                         </button>
-            </a>
+            </span>
         </div>
         <Email /> 
     </div>

@@ -1,14 +1,12 @@
 import React, { useEffect } from 'react'
-
 import { Link, useNavigate } from 'react-router-dom';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 
 
-function Login({ onLogin, username, password, setUsername, setPassword, setIsAuthenticated, neighbor, setEvents}) {
+function Login({ setNeighbor, username, password,email, isAuthenticated, setUsername, setPassword, setIsAuthenticated, neighbor, setEvents,  setEmail}) {
 
   let navigate = useNavigate();
 
@@ -19,46 +17,39 @@ function Login({ onLogin, username, password, setUsername, setPassword, setIsAut
         headers: {
           "Content-Type": "application/json",
          },
-        body: JSON.stringify({username: username, 
-                              password: password}),
+        body: JSON.stringify({username, 
+                              password,
+                              email}),
       })
         .then(r => r.json())
         .then(user => {
-          onLogin(user)
+          setNeighbor(user)
           navigate('/homepage')
       })
-      e.target.reset()}
-      // .then(() => navigate('/homepage'))
-    //     if (isAuthenticated){
-    //       .then(navigate('/homepage'))
-    //     } else {
-          // .then(navigate('/login'))
-    // }
-    // } 
-      //if(loggged in)
-      // homepage
-      //else ----> notes from vineet
+}
 
 
-      //running before every --- move to login?
-console.log(neighbor)
+
+
 // authentication
+console.log(neighbor)
+
 useEffect(() => {
     fetch('/authorized_neighbor')
     .then (r => {
       if(r.ok) {// add an error (.catch) -- try/catch 
         r.json()
-        .then((neighbor) => {
+        .then((user) => {
           setIsAuthenticated(true);
-          onLogin(neighbor);
+          setNeighbor(user);
           // .catcch
         })
         .then(() => {
-          // fetch('/me')
+
           fetch('/events')
           .then((r) => r.json())
           .then(events => {
-            console.log(events)
+            // console.log(events)
             setEvents(events)
           })
         })
@@ -93,6 +84,7 @@ useEffect(() => {
                   onChange={(e) => setPassword(e.target.value)}
                   />
           </Form.Group>
+ 
             <br></br>
             <Button type="submit" >Login</Button>
    

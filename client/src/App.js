@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState} from 'react';
 import { Route, Routes } from "react-router-dom";
 import './App.css';
 import Login from './Login';
@@ -13,51 +13,28 @@ import Email from './Email';
 
 function App() {
 
-const [neighbor, setNeighbor] = useState(null)
-const [isAuthenticated, setIsAuthenticated] = useState(false)
-const [username, setUsername] = useState("");
-const [password, setPassword] = useState("");
-const [events, setEvents] = useState([]);
-const [newEvent, setNewEvent] = useState({
-  event_title: '',
-  date:'',
-  purpose: '',
-  supplies: '',
-  location: '',
-  start_time: '',
-  end_time: '',
-  community: ''
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("")
+  const [events, setEvents] = useState([]);
+  const [newEvent, setNewEvent] = useState({
+    event_title: '',
+    date:'',
+    purpose: '',
+    supplies: '',
+    location: '',
+    start_time: '',
+    end_time: '',
+    community: ''
+  })
+  const [neighbor, setNeighbor] = useState({
+    username: '',
+    password: '',
+    email: ''
+    })
 
-})
 
-
-
-// //running before every --- move to login?
-// console.log(neighbor)
-// // authentication
-// useEffect(() => {
-//     fetch('/authorized_neighbor')
-//     .then (r => {
-//       if(r.ok) {// add an error (.catch) -- try/catch 
-//         r.json()
-//         .then((neighbor) => {
-//           setIsAuthenticated(true);
-//           setNeighbor(neighbor);
-//           // .catcch
-//         })
-//         .then(() => {
-//           // fetch('/me')
-//           fetch('/events')
-//           .then((r) => r.json())
-//           .then(events => {
-//             console.log(events)
-//             setEvents(events)
-//           })
-//         })
-//       }
-//     })
-// },[]);
-// ///I think I need to add an else here between 43 & 44 to catch the path before it goes to events... where do I want it to go? 
 
 
 return (
@@ -67,6 +44,9 @@ return (
         <Route path='/signup' 
         element={<SignUp username={username} 
                          password={password} 
+                         email={email}
+                         setNeighbor={setNeighbor}
+                         setEmail={setEmail}
                          setUsername={setUsername} 
                          setPassword={setPassword}/>} />
         <Route path='/newEventForm' 
@@ -83,9 +63,12 @@ return (
         element={<Login username={username} 
                         password={password} 
                         neighbor={neighbor}
+                        email={email}
+                        isAuthenticated={isAuthenticated}
+                        setEmail={setEmail}
                         setUsername={setUsername} 
                         setPassword={setPassword} 
-                        onLogin={setNeighbor} 
+                        setNeighbor={setNeighbor} 
                         setIsAuthenticated = {setIsAuthenticated}
                         setEvents={setEvents}
                         />} />
@@ -95,9 +78,11 @@ return (
         element={<Login username={username} 
                         password={password} 
                         neighbor={neighbor}
+                        email={email}
+                        setEmail={setEmail}
                         setUsername={setUsername} 
                         setPassword={setPassword} 
-                        onLogin={setNeighbor}
+                        setNeighbor={setNeighbor}
                         setIsAuthenticated = {setIsAuthenticated}
                         setEvents={setEvents}/>} />
         

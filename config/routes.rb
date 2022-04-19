@@ -8,11 +8,9 @@ Rails.application.routes.draw do
   post '/events/create', to: "events#create"
   patch '/events/:id/edit', to: "events#edit"
   post '/login', to: "sessions#create"
-  # delete '/logout', to: "sessions#destroy"
+
   
   get '/authorized_neighbor', to: "neighbors#show"
-  # get '/me', to: 'neighbors#show'
-  # get '/', to: 'neighbors#show'
   get '/events', to: "events#index"
   
   

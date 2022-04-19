@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-function SignUp({ username, password, setUsername, setPassword }) {
+function SignUp({ username, password, setUsername, setPassword, email, setEmail, setNeighbor }) {
 
 
 
@@ -29,21 +29,18 @@ function SignUp({ username, password, setUsername, setPassword }) {
         body: JSON.stringify({
             username,
             password,
+            email
         }),
         }).then((r => { //catch?
             if (r.ok) {
-                r.json().then((user) => console.log(user));
+                r.json().then((user) => setNeighbor(user));
                 navigate('/homepage')
 
             } else {
                 r.json().then((err) => console.log(err));
             } 
         }))
-        e.target.reset()}
-
-
-
-
+ }
 
   return (
     <>
@@ -69,14 +66,22 @@ function SignUp({ username, password, setUsername, setPassword }) {
                     <Form.Group>
                     <Form.Label> Password: </Form.Label>
                     <Form.Control 
-                        type="text"
+                        type="password"
                         id="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         />
                     </Form.Group>
+                    <Form.Group>
+                    <Form.Label> E-mail: </Form.Label>
+                    <Form.Control 
+                        type="text"
+                        id="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        />
+                    </Form.Group>
                     <Button type="submit" onClick={handleSignUpSubmit} >Submit</Button>
-
                 </Form>
             </div>
         </div>
