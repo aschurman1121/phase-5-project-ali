@@ -12,11 +12,7 @@ import { useNavigate } from 'react-router-dom';
 function SignUp({ username, password, setUsername, setPassword, email, setEmail, setNeighbor }) {
 
 
-
-
     let navigate = useNavigate();
-
-
 
     function handleSignUpSubmit(e) {
         e.preventDefault()

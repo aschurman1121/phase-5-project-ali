@@ -6,7 +6,6 @@ import Email from './Email';
 
 function Homepage({ events, setEvents, newEvent, setNewEvent }) {
 
-
     useEffect(() => {
         fetch('/events')
         .then(r => r.json())
@@ -29,7 +28,6 @@ const allEvents = events.map( e => {
         />
     )
 })
-
 
 
   return (

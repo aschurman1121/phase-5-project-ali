@@ -5,14 +5,11 @@ import Button from 'react-bootstrap/Button'
 import { useNavigate } from 'react-router-dom'
 
 function CreateEvent( { newEvent, setNewEvent, events, setEvents }) {
+//path -> /newEventForm
 
        let navigate = useNavigate();
 
-       //this page is on the /newEventForm
 
-
-
-// showing the data upon refresh, erring out when submit is pressed
     function handleEventSubmit(e){
         e.preventDefault();
         fetch('/events/create', {
@@ -33,82 +30,67 @@ function CreateEvent( { newEvent, setNewEvent, events, setEvents }) {
            console.log(e.target)
     }
 
-/// move the onChange to  a higher level  - not DRY  --loook at the default states of form, how it reads it
-
   return (
-    <div>Create Event
-        <Form>
-         <Form.Group>  
-                <Form.Label>Event Title:</Form.Label>
-                <Form.Control
+    <div id='create_event_form'>Create Event
+       <form className='form'>
+              <label>Event Title:</label>
+              <input
                 type="text"
                 name="event_title"
                 placeholder='Add event title here'
                 value={newEvent.eventTitle}
                 onChange={handleNewEventChange}
                 />
-         </Form.Group>
-         <Form.Group>
-                <Form.Label>Date:</Form.Label>
-                <Form.Control
+              <label>Date:</label>
+              <input
                 type="date"
                 name="date"
                 value={newEvent.date}
                 onChange={handleNewEventChange}
                 />
-         </Form.Group>
-         <Form.Group>
-                <Form.Label>Purpose:</Form.Label>
-                <Form.Control
+         
+              <label>Purpose:</label>
+              <input
                 type='text'
                 name="purpose"
                 placeholder='Please add a short description for the event'
                 value={newEvent.purpose}
                 onChange={handleNewEventChange}
                 />
-         </Form.Group>
-         <Form.Group>
-                <Form.Label>Supplies:</Form.Label>
-                <Form.Control
+              <label>Supplies:</label>
+              <input
                 type='text'
                 name="supplies"
                 placeholder='List supplies here'
                 value={newEvent.supplies}
                 onChange={handleNewEventChange}
                 />
-         </Form.Group>
-         <Form.Group>
-                <Form.Label>Location:</Form.Label>
-                <Form.Control
+
+              <label>Location:</label>
+                <input
                 type='text'
                 name="location"
                 placeholder="Please add the location here"
                 value={newEvent.location}
                 onChange={handleNewEventChange}
                 />
-         </Form.Group>
-         <Form.Group>
-                <Form.Label>Start Time:</Form.Label>
-                <Form.Control
+              <label>Start Time:</label>
+              <input
                 type='time'
                 name="start_time"
                 value={newEvent.startTime}
                 onChange={handleNewEventChange}
                 />
-         </Form.Group>
-         <Form.Group>
-                <Form.Label>End Time:</Form.Label>
-                <Form.Control
+              <label>End Time:</label>
+              <input
                 type='time'
                 name="end_time"
                 value={newEvent.endTime}
                 onChange={handleNewEventChange}
                 />
-        </Form.Group>
+        </form>
 
-        </Form>
-
-        <Button onClick={handleEventSubmit}>Submit Event</Button>
+        <button onClick={handleEventSubmit}>Submit Event</button>
     </div>
   )
 }

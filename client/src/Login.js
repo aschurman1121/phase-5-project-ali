@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 
 
-function Login({ setNeighbor, username, password,email, isAuthenticated, setUsername, setPassword, setIsAuthenticated, neighbor, setEvents,  setEmail}) {
+function Login({ setNeighbor, username, password,email,  setUsername, setPassword, setIsAuthenticated, neighbor, setEvents}) {
 
   let navigate = useNavigate();
 
@@ -32,7 +32,7 @@ function Login({ setNeighbor, username, password,email, isAuthenticated, setUser
 
 
 // authentication
-console.log(neighbor)
+
 
 useEffect(() => {
     fetch('/authorized_neighbor')
@@ -42,14 +42,13 @@ useEffect(() => {
         .then((user) => {
           setIsAuthenticated(true);
           setNeighbor(user);
-          // .catcch
+          // .catch
         })
         .then(() => {
 
           fetch('/events')
           .then((r) => r.json())
           .then(events => {
-            // console.log(events)
             setEvents(events)
           })
         })
@@ -59,47 +58,39 @@ useEffect(() => {
 
   return (
 
- <div className="user_start">
+ <div className='form' id="user_start">
     <Container>
       <div className="title_block">
         Community Corner
       </div>
-      <div className='login_sign_up'>
-            Login
-            <div className='username_password_form_inputs'>
-        <Form onSubmit={handleLoginSubmit}>
-          <Form.Group>
-             <Form.Control
-                 type="text"
-                 value={username}
-                 placeholder = "Username"
-                 onChange={(e) => setUsername(e.target.value)}/>
-             </Form.Group>
-             <br></br>
-             <Form.Group>
-               <Form.Control
-                  type='password'
-                  value={password}
-                  placeholder='Password'
-                  onChange={(e) => setPassword(e.target.value)}
-                  />
-          </Form.Group>
- 
-            <br></br>
-            <Button type="submit" >Login</Button>
-   
-        </Form>
+          <div className='login_sign_up'>
+                Login
+                <div className='username_password_form_inputs'>
+            <form onSubmit={handleLoginSubmit}>
+                <input
+                    type="text"
+                    value={username}
+                    placeholder = "Username"
+                    onChange={(e) => setUsername(e.target.value)}/>
+                <br></br>
+                  <input
+                      type='password'
+                      value={password}
+                      placeholder='Password'
+                      onChange={(e) => setPassword(e.target.value)}
+                      />
+                <br></br>
+                <button type="submit" >Login</button>
+            </form>
           </div>
-          <br></br>
-        <Link to='/signup'>
-          <p id='sign_up_link'>Not a member? Sign up here!</p>
+      <br></br>
+         <Link to='/signup'>
+            <p id='sign_up_link'>Not a member? Sign up here!</p>
         </Link>
-            </div>
+    </div>
 
     </Container>
     </div>
-
-
   )
 }
 

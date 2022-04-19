@@ -10,9 +10,6 @@ function EventPage() {
     <>
 
     <div>EventPage
-     
-   
-    
       {/* <EventCard /> 
       <CreateEvent /> */}
     </div>

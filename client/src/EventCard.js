@@ -8,21 +8,18 @@ function EventCard({ event_title, date, purpose, supplies, location, start_time,
   let navigate = useNavigate();
 
 
-
-  //event's ( i.e. {allEvents}) do not render when a user signs up, need to create an access point between events & neighbors on the front end. Backend macros in place. 
- 
-        function handleEmailClick(e) {
+  function handleEmailClick(e) {
           console.log("click!")
           navigate('/email')
         }
 
-// look into dstructuring the render -- react specific-- Loops over one value dynamically 
 
   return (
     <div className='event_card'>
     
-      Event title: {event_title}
+      <h1 id='event_title'>{event_title}</h1>
       <br></br>
+      <div id='event_card_text'>
       Date: {date}
 
       <br></br>
@@ -37,6 +34,7 @@ function EventCard({ event_title, date, purpose, supplies, location, start_time,
       Start Time: {start_time}
       <br></br>
       End Time: {end_time}
+      </div>
  
     </div>
   )
