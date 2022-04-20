@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 
 
-function Login({ setNeighbor, username, password,email,  setUsername, setPassword, setIsAuthenticated, neighbor, setEvents}) {
+function Login({ setNeighbor, username, password,email,  setUsername, setPassword, setIsAuthenticated, setEvents}) {
 
   let navigate = useNavigate();
 

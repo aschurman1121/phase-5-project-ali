@@ -1,6 +1,6 @@
 import React, { useState} from 'react';
 import { Route, Routes } from "react-router-dom";
-import './App.css';
+import './App.scss';
 import Login from './Login';
 import NavBar from './NavBar';
 import SignUp from './SignUp';
