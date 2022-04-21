@@ -18,38 +18,31 @@ function EventCard({ event_title, date, purpose, supplies, location, start_time,
     <div className='event_card'>
     
       <h1 id='event_title'>{event_title}</h1>
-      <br></br>
+        <br></br>
       <div id='event_card_text'>
-
+        <p className='event_card_text'>
+            Purpose: 
+            </p>{purpose}
+        <p className='event_card_text'>
+            Supplies: 
+            </p> {supplies}
       <p className='event_card_text'>
-      Purpose: </p>{purpose}
-
+            Location: 
+            </p> {location}
       <p className='event_card_text'>
-      Supplies: </p> {supplies}
-
-
+            Start Time: 
+            </p> {start_time} 
       <p className='event_card_text'>
-      Location: </p> {location}
-
+            Date:
+            </p>{date}
       <p className='event_card_text'>
-      Start Time: </p> {start_time} 
-
-      <p className='event_card_text'>
-        Date:</p> 
-        {date}
-
-      <p className='event_card_text'>
-      End Time:</p> {end_time}
+            End Time:
+            </p> {end_time}
       </div>
       <div id='card_buttons'>
       <button className='button' id='btn1' onClick={handleEmailClick}> 
         Invite your friends!
       </button>
-      {/* <button className='button' > 
-        <Link to='/:id/edit' id='edit_button'>
-          Edit
-        </Link>
-      </button> */}
       </div>
 
     </div>

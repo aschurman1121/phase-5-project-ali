@@ -54,7 +54,7 @@ function CreateEvent( { newEvent, setNewEvent, setEvents }) {
           </Form.Group>
               <label>Purpose:</label>
           <Form.Group>
-              <Form.Control
+              <Form.Control as="textarea" rows="7" 
                 type='text'
                 name="purpose"
                 placeholder='Please add a short description for the event'
