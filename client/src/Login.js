@@ -64,7 +64,8 @@ useEffect(() => {
         Community Corner
       </div>
           <div className='login_sign_up'>
-                Login
+
+                <p id='login_title'>Login</p>
                 <div className='username_password_form_inputs'>
             <Form onSubmit={handleLoginSubmit}>
               <Form.Group>
@@ -84,13 +85,12 @@ useEffect(() => {
                       />
                 </Form.Group>
                 <br></br>
-                <button type="submit" >Login</button>
+                <button className='button' type="submit" >Login</button>
             </Form>
           </div>
       <br></br>
-         <Link to='/signup'>
-            <p id='sign_up_link'>Not a member? Sign up here!</p>
-        </Link>
+         <p id='sign_up_link'>Not a member? <Link to='/signup'>Sign up here!</Link>
+        </p>
     </div>
 
     </Container>

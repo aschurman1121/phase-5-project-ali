@@ -40,16 +40,12 @@ const allEvents = events.map( e => {
                 </div>    
             </div>
 
-        <div className='user_info'> 
-            this is where the user will render
+        <div className='new_form_container'> 
             <span className='link'>
                 <CreateEvent events = {events} 
                              setEvents={setEvents} 
                              newEvent={newEvent} 
                              setNewEvent={setNewEvent} />
-                        <button> 
-                        Create New Event
-                        </button>
             </span>
         </div>
         <Email /> 
