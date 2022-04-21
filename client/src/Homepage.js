@@ -41,6 +41,7 @@ const allEvents = events.map( e => {
             </div>
 
         <div className='new_form_container'> 
+            <h2 id='event_container_header' > Create an event here!</h2>
             <span className='link'>
                 <CreateEvent events = {events} 
                              setEvents={setEvents} 
@@ -48,7 +49,7 @@ const allEvents = events.map( e => {
                              setNewEvent={setNewEvent} />
             </span>
         </div>
-        <Email /> 
+
     </div>
      </>
   )

@@ -30,7 +30,8 @@ function CreateEvent( { newEvent, setNewEvent, setEvents }) {
     }
 
   return (
-    <div id='create_event_form'>Create Event
+    <div id='create_event_form'>
+      
        <Form className='form'>
          <Form.Group>
               <label>Event Title:</label>
@@ -100,8 +101,9 @@ function CreateEvent( { newEvent, setNewEvent, setEvents }) {
                 />
             </Form.Group>
         </Form>
-
+      <div id='event_submit'> 
         <button className='button' onClick={handleEventSubmit}>Submit Event</button>
+      </div>
     </div>
   )
 }
