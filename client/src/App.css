@@ -120,6 +120,10 @@
   margin: 10px;
 }
 
+#edit_button {
+  text-decoration: none;
+  color: #F8FFE5;
+}
 
 
 #btn1 {
