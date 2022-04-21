@@ -1,9 +1,4 @@
 
-#navbar_home {
-  background: rgba(177, 133, 219, 0.74);
-  position: relative;
-}
-
 .link{
   color: white;
 }
@@ -11,8 +6,7 @@
 #user_start{
   position: relative;
   width: 1512px;
-  height: 982px;
-  
+  height: 1982px;
   background: #1B9AAA;
 
 }

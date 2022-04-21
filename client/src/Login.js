@@ -66,22 +66,26 @@ useEffect(() => {
           <div className='login_sign_up'>
                 Login
                 <div className='username_password_form_inputs'>
-            <form onSubmit={handleLoginSubmit}>
+            <Form onSubmit={handleLoginSubmit}>
+              <Form.Group>
                 <input
                     type="text"
                     value={username}
                     placeholder = "Username"
                     onChange={(e) => setUsername(e.target.value)}/>
+                </Form.Group>
                 <br></br>
+                <Form.Group>
                   <input
                       type='password'
                       value={password}
                       placeholder='Password'
                       onChange={(e) => setPassword(e.target.value)}
                       />
+                </Form.Group>
                 <br></br>
                 <button type="submit" >Login</button>
-            </form>
+            </Form>
           </div>
       <br></br>
          <Link to='/signup'>
