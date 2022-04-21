@@ -19,7 +19,7 @@ function NavBar({ onLogout }) {
     <div className="header">
     <header>
       <Link to='/logout'>
-        <Button onClick={handleLogout}>logout</Button>
+        <button className='button' id='logout_btn' onClick={handleLogout}>logout</button>
       </Link>
     </header>
     </div>

@@ -32,7 +32,7 @@ const allEvents = events.map( e => {
 
   return (
     <>
-    <div className='home'>Homepage
+    <div className='home'>
             <div className='event_container' >
                 <div className='card_scroll'>
                 <h1 id='event_container_header'> Events </h1>
