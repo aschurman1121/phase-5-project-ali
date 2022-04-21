@@ -23,7 +23,6 @@ function EventCard({ event_title, date, purpose, supplies, location, start_time,
       Date: {date}
 
       <br></br>
-      <button onClick={handleEmailClick}> Email to your friends!  </button>
       <br></br>
       Purpose: {purpose}
       <br></br>
@@ -36,6 +35,13 @@ function EventCard({ event_title, date, purpose, supplies, location, start_time,
       End Time: {end_time}
       </div>
  
+      <button className='button' id='card_button' onClick={handleEmailClick}> 
+        Invite your friends!
+      </button>
+      <button className='button'id='card_button'> 
+        Edit
+      </button>
+
     </div>
   )
 }
