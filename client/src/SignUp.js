@@ -39,15 +39,13 @@ function SignUp({ username, password, setUsername, setPassword, email, setEmail,
  }
 
   return (
-    <>
-  
-    <div className="user_start">
+    <div id="user_start">
     <Container> 
     <div className="title_block">
         Community Corner
       </div>
         <div className='login_sign_up'>
-            <h2>SignUp</h2>
+            <h2 id='login_title'>SignUp</h2>
             <div id='sign_up'>
                 <Form onSubmit={handleSignUpSubmit}>
                     <Form.Group>
@@ -77,13 +75,19 @@ function SignUp({ username, password, setUsername, setPassword, email, setEmail,
                         onChange={(e) => setEmail(e.target.value)}
                         />
                     </Form.Group>
-                    <Button type="submit" onClick={handleSignUpSubmit} >Submit</Button>
+                    <button 
+                    className='button'
+                    id='sign_up_button'
+                    type="submit" 
+                    onClick={handleSignUpSubmit}>
+                        Submit
+                    </button>
                 </Form>
             </div>
         </div>
     </Container>
     </div>
-    </>
+
   )
 }
 

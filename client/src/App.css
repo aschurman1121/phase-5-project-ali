@@ -30,6 +30,14 @@
 
 }
 
+#sign_up_button{
+  margin-top: 40px;
+}
+
+#sign_up{
+  margin-top: 40px;
+}
+
 .title_block {
   position: absolute;
   width: 968px;
