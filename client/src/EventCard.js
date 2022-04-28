@@ -13,6 +13,12 @@ function EventCard({ event_title, date, purpose, supplies, location, start_time,
           navigate('/email')
         }
 
+  function handleEditClick (e) {
+    console.log('click')
+    navigate('/:id/edit')
+  }
+
+  
 
   return (
     <div className='event_card'>
@@ -42,6 +48,9 @@ function EventCard({ event_title, date, purpose, supplies, location, start_time,
       <div id='card_buttons'>
       <button className='button' id='btn1' onClick={handleEmailClick}> 
         Invite your friends!
+      </button>
+      <button className='button' onClick={handleEditClick}>
+        Edit this event
       </button>
       </div>
 

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import './Login.css';
 import { Link, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form'
@@ -6,6 +7,9 @@ import Container from 'react-bootstrap/Container'
 
 
 function Login({ setNeighbor, username, password,email,  setUsername, setPassword, setIsAuthenticated, neighbor, setEvents}) {
+
+  // /Users/alexandraschurman/Desktop/Phase-5-project/phase-5-project-ali/client/src/NYC_login.jpeg
+
 
   let navigate = useNavigate();
 
@@ -57,7 +61,8 @@ useEffect(() => {
 
   return (
 
- <div className='form' id="user_start">
+
+ <div className='form' id="user_start_login">
     <Container>
       <div className="title_block">
         Community Corner
