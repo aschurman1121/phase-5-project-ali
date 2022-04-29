@@ -6,6 +6,7 @@ function EventPage() {
   //this page is linked to the /:id/edit page
 
 
+
   
 
   return (
