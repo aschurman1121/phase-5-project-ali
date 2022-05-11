@@ -3,6 +3,8 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 
+
+
 function EventCard({ event_title, date, purpose, supplies, location, start_time, end_time }) {
 
   let navigate = useNavigate();
@@ -42,7 +44,7 @@ function EventCard({ event_title, date, purpose, supplies, location, start_time,
             Date:
             </p>{date}
       <p className='event_card_text'>
-            End Time:
+            End Time:     
             </p> {end_time}
       </div>
       <div id='card_buttons'>
